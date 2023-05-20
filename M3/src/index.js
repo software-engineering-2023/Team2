@@ -6,7 +6,7 @@ import { Redirect} from 'react-router-dom'
 import { Routes , Route } from 'react-router-dom';
 import { Router } from 'react-router-dom';
 import LoginForm from './Login';
-
+import Register from './Register';
 
 
 ReactDOM.render(
@@ -15,6 +15,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<LoginForm />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/register" element={<Register></Register>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,10 +1,15 @@
 import React , {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Box = ({text,backgroundImg,head}) => {
+const Box = ({text,head,dest}) => {
     const [isHovered, setIsHovered] =  useState(false);
+    const nav =useNavigate();
 
     const handleHover = () => {
         setIsHovered(!isHovered);
+    };
+    const handleExploreClick = () => {
+        nav(dest);
     };
 
     
@@ -17,7 +22,7 @@ const Box = ({text,backgroundImg,head}) => {
         >
           <h3 className={`head ${isHovered ? 'head-hovered' : ''}`}>{head}</h3>
           <p className= {`box-text ${isHovered ? 'text-hovered' : ''}`}>{text}</p>
-          <button className="box-button">Explore</button>
+          <button className="box-button" onClick={handleExploreClick}>Explore</button>
         </div>
       );
 };

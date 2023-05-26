@@ -1,0 +1,33 @@
+.boxwrap{
+    margin-top: 4vh;
+    display: flex;
+    flex-wrap: wrap; /* Allow boxes to wrap to a new line */
+    align-items: center;
+    justify-content: center;
+  }
+
+.boxwraplevel1{
+    display: flex;
+    flex-wrap: wrap; /* Allow boxes to wrap to a new line */
+    align-items: center;
+    justify-content: center;
+    margin-top: 9vh;
+}
+
+.bigone{
+  background-image: url("grumpy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.button-container{
+  display: flex;
+}
+
+.bankerlogin{
+  background-color: #282c34;
+}

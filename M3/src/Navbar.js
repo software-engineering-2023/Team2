@@ -56,8 +56,9 @@ const Navbar = () => {
           open={Boolean(anchorEl)}
           onClose={closeMenu}
         >
-          <MenuItem onClick={gotoLogin}>Logout</MenuItem>
+          
           <MenuItem onClick={gotoProfile}>Account Settings</MenuItem>
+          <MenuItem onClick={gotoLogin}>Logout</MenuItem>
         </Menu>
       </div>
     </nav>

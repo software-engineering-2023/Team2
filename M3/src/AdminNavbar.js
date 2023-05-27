@@ -1,26 +1,43 @@
 
 
-
-
 import React from 'react';
 import './index.css' ;
-
+import { IconButton, Menu, MenuItem } from '@material-ui/core';
+import { AccountCircle, KeyboardArrowDown } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
-const AdminNavbar = () => {
-  // const [ redirectToHome , setRedirectToHome] = useState(false);
 
-  // function handleButtonClick() {
-  //   setRedirectToHome(true);
-  // }
-  // if (redirectToHome){
-  //   return <Redirect to = "/Login" />
-  // }
+const AdminNavbar = () => {
   const nav = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const openMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const closeMenu = () => {
+    setAnchorEl(null);
+  };
 
   const gotoLogin = () => {
-    nav("/");
-  }
+    nav('/');
+  };
+
+  const gotoHome = () => {
+    nav('/HomeAdmin');
+  };
+
+  const gotoAnnounce = () => {
+    nav('/Announce');
+  };
+
+  const gotoIssues = () => {
+    nav('/Issues');
+  } 
+
+
+
+  
   
 
 
@@ -30,9 +47,9 @@ const AdminNavbar = () => {
         <h1 className="navbar-title">BANK.</h1>
       </div>
       <div className="navbar-middle">
-        <button className="navbar-button" onclick=" ">Home</button>
-        <button className="navbar-button">Technical Issues</button>
-        <button  className="navbar-button">Announcements</button>
+        <button className="navbar-button" onClick={gotoHome}>Home</button>
+        <button className="navbar-button" onClick={gotoIssues}>Technical Issues</button>
+        <button  className="navbar-button" onClick={gotoAnnounce}>Announcements</button>
       </div>
       <div className="navbar-right">
          

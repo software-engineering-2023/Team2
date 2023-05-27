@@ -4,9 +4,16 @@ import './billing.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import SecondNav from './SecondNav';
 import Navbar from "./Navbar";
-
+import MyVerticallyCenteredModal from './MyVerticallyCenteredModal';
 const BillingPage = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+
+  const onPay= () => {
+setModalShow(false);
+alert("Payment Successful");
+  }
     return (
+      
         <div className="baba">
             <Navbar></Navbar>
             <SecondNav></SecondNav>
@@ -60,7 +67,7 @@ const BillingPage = () => {
             </div>
           </div>
           <div className="ms-4 small">
-            <a href="#!">Edit</a>
+          <button className ="btn btn-sm add-reminder">Remove</button>
           </div>
         </div>
         <hr />
@@ -74,7 +81,7 @@ const BillingPage = () => {
             </div>
           </div>
           <div className="ms-4 small">
-            <a href="#!">Edit</a>
+          <button className ="btn btn-sm add-reminder">Remove</button>
           </div>
         </div>
         <hr />
@@ -88,7 +95,7 @@ const BillingPage = () => {
             </div>
           </div>
           <div className="ms-4 small">
-            <a href="#!">Edit</a>
+          <button className ="btn btn-sm add-reminder">Remove</button>
           </div>
         </div>
       </div>
@@ -106,7 +113,7 @@ const BillingPage = () => {
                   Bill ID
                 </th>
                 <th className="border-gray-200" scope="col">
-                  Bill Name
+                  Bill Type
                 </th>
                 <th className="border-gray-200" scope="col">
                   Date
@@ -120,6 +127,9 @@ const BillingPage = () => {
                 <th className="border-gray-200" scope="col">
                   Reminders
                 </th>
+                <th className="border-gray-200" scope="col">
+                  Pay
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -129,9 +139,11 @@ const BillingPage = () => {
                 <td>06/15/2021</td>
                 <td>$29.99</td>
                 <td>
-                  <span className="badge bg-light text-dark">Pending</span>
+                  <span className="badge bg-light text-dark">Unpaid</span>
                 </td>
                 <td><button className ="btn btn-sm add-reminder" onclick="handleReminderClick()">Set Reminder</button></td>
+                <td><button className ="btn btn-sm add-reminder" onClick={() => setModalShow(true)}>Pay</button></td>
+                <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
               </tr>
               <tr>
                 <td>#38594</td>

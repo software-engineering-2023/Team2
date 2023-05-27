@@ -1,0 +1,25 @@
+/* Add the following CSS to your existing CSS file */
+
+.box-right,
+.box-left {
+  border-radius: 15px;
+  padding: 12px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.bg-green {
+    background-color: #d4f8f2;
+    color: #06e67a;
+    padding: 3px 0;
+    display: inline;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.button-container {
+    margin-left: 30vw;
+  }
+  

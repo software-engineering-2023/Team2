@@ -27,6 +27,10 @@ const Navbar = () => {
     nav('/acc');
   };
 
+  const gotoReports = () => {
+    nav('/reports');
+  }
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -36,8 +40,8 @@ const Navbar = () => {
         <button onClick={gotoHome} className="navbar-button">
           Home
         </button>
-        <button className="navbar-button">Bank Announcements</button>
-        <button className="navbar-button">Contact Us</button>
+        <button className="navbar-button">About</button>
+        <button onClick={gotoReports} className="navbar-button">Reports</button>
       </div>
       <div className="navbar-right">
         <IconButton style={{ color: '#ffffff' }}

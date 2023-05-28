@@ -1,7 +1,8 @@
 import 'jquery/dist/jquery.min.js';
 import "@fortawesome/fontawesome-free/css/all.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import './new.css'
+import './new.css';
+import MyVerticallyCenteredModal from './MyVerticallyCenteredModal';
 import Navbar from "./Navbar";
 import Second from "./SecondNav";
 import React, { useState } from 'react';
@@ -13,9 +14,11 @@ import {
     MDBTabsPane
   } from 'mdb-react-ui-kit';
 import CardDesign from './CardDesign';
+import {useNavigate} from 'react-router-dom';import { reference } from '@popperjs/core';
+;
 
 const NewCreditCard = () => {
-
+const nav =useNavigate();;
     const [basicCard, setBasicCard] = useState('card1');
     const [submitted, setSubmitted] = useState(false);
 
@@ -29,6 +32,25 @@ const NewCreditCard = () => {
         setBasicCard(value);
       };
 
+      const gotoCreditTrans = () => {
+        nav('/creditcardtransactions')
+      }
+
+      const gotoCreditApp = () => {
+        nav('/applyforcredit')
+      }
+
+      const gotoCreditRep = () => {
+        nav('/applyforreplacement')
+      }
+
+      const [modalShow, setModalShow] = React.useState(false);
+
+      const onPay= () => {
+    setModalShow(false);
+    alert("Payment Successful");
+      }
+      
   return (
     <div className="bigboss">
         <Navbar></Navbar>
@@ -78,6 +100,7 @@ const NewCreditCard = () => {
                   <p>Credit Limit : 20,000</p>
                   <p> </p>
                   <p>Current Points : 4000</p>
+                  <button className="p-blue bg btn btn-primary h8">Redeem Points for 5% Cashback</button>
                   </p>
 
                 </div>
@@ -101,6 +124,7 @@ const NewCreditCard = () => {
                   <p>Credit Limit : 40,000</p>
                   <p> </p>
                   <p>Current Points : 7237</p>
+                  <button className="p-blue bg btn btn-primary h8">Redeem Points for 10% Cashback</button>
                   </p>
 
                 </div>
@@ -124,7 +148,7 @@ const NewCreditCard = () => {
                   <p>Credit Limit : 70,000</p>
                   <p> </p>
                   <p>Current Points : 2300</p>
-                  <button className="p-blue bg btn btn-primary h8">Redeem Points for 10% Cashback</button>
+                  <button className="p-blue bg btn btn-primary h8">Redeem Points for 7% Cashback</button>
                   </p>
 
                 </div>
@@ -144,63 +168,57 @@ const NewCreditCard = () => {
             <thead>
               <tr>
                 <th className="border-gray-200" scope="col">
-                  Loan Number
+                Credit Card Number
                 </th>
                 <th className="border-gray-200" scope="col">
-                  Bill Name
+                Amount
                 </th>
                 <th className="border-gray-200" scope="col">
-                  Date
+                Due Date
                 </th>
                 <th className="border-gray-200" scope="col">
-                  Amount
+                Status
                 </th>
                 <th className="border-gray-200" scope="col">
-                  Status
+                Reminders
                 </th>
                 <th className="border-gray-200" scope="col">
-                  Reminders
+                Pay
                 </th>
-                <th className="border-gray-200" scope="col">
-                  Reminders
-                </th>
-                <th className="border-gray-200" scope="col">
-                  Reminders
-                </th>
+                
 
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>#39201</td>
-                <td>Water</td>
+                <td>**** **** **** 1111</td>
+                <td>$29.99</td>
                 <td>06/15/2021</td>
-                <td>$29.99</td>
-                <td>$29.99</td>
-                <td>$29.99</td>
-                <td>
-                  <span className="badge bg-light text-dark">Pending</span>
-                </td>
-                <td><button className ="btn btn-sm add-reminder" onclick="handleReminderClick()">Set Reminder</button></td>
+                <span className="badge bg-light text-dark">Unpaid</span>
+                <td>06/14/2021</td>
+                <td><button className ="btn btn-sm add-reminder" onClick={() => setModalShow(true)}>Pay</button></td>
+                <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
+                
               </tr>
               <tr>
-                <td>#38594</td>
-                <td>Gas</td>
+                <td>**** **** **** 3456</td>
+                <td>$29.99</td>
+                <td>06/15/2021</td>
+                <span className="badge bg-light text-dark">Pending</span>
+                <td>06/14/2021</td>
+                
+                
+                
+              </tr>
+              <tr>
+                <td>**** **** **** 0005</td>
+                <td>$29.99</td>
                 <td>05/15/2021</td>
-                <td>$29.99</td>
-                <td>
-                  <span className="badge bg-light text-dark">Pending</span>
-                </td>
+                <span className="badge bg-success">Paid</span>
                 <td>05/14/2021</td>
-              </tr>
-              <tr>
-                <td>#38223</td>
-                <td>Electricity</td>
-                <td>04/15/2021</td>
-                <td>$29.99</td>
-                <td>
-                  <span className="badge bg-success">Paid</span>
-                </td>
+                
+                
+                
               </tr>
             </tbody>
           </table>
@@ -217,7 +235,7 @@ const NewCreditCard = () => {
                   <p className="h8">
                   Embrace the Rewards and Convenience of Credit Cards Today!
                   </p>
-                  <p className="p-blue bg btn btn-primary h8">Apply for a Credit Card</p>
+                  <button className="p-blue bg btn btn-primary h8" onClick={gotoCreditApp}>Apply for a Credit Card</button>
             </div>
           </div>
            <div className="box-left border mt-4">
@@ -238,7 +256,7 @@ const NewCreditCard = () => {
                         <p className="h8">
                         Ensure uninterrupted access to your funds!
                         </p>
-                        <p className="p-blue bg btn btn-primary h8">Apply for Credit Card Replacement</p>
+                        <button className="p-blue bg btn btn-primary h8" onClick={gotoCreditRep}>Apply for Credit Card Replacement</button>
                     </div>
                 </div>
             </div>
@@ -249,7 +267,7 @@ const NewCreditCard = () => {
                         <p className="h8">
                         Track and Manage Your Transactions with Ease
                         </p>
-                        <p className="p-blue bg btn btn-primary h8">View Transactions</p>
+                        <p className="p-blue bg btn btn-primary h8" onClick={gotoCreditTrans}>View Transactions</p>
                     </div>
                 </div>
             </div>

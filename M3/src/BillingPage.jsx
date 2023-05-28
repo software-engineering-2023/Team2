@@ -5,9 +5,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import SecondNav from './SecondNav';
 import Navbar from "./Navbar";
 import MyVerticallyCenteredModal from './MyVerticallyCenteredModal';
+import AddPayment from "./AddPayment";
 const BillingPage = () => {
   const [modalShow, setModalShow] = React.useState(false);
-
+  const [modalshowadd,setModalShowAdd] = React.useState(false);
   const onPay= () => {
 setModalShow(false);
 alert("Payment Successful");
@@ -52,9 +53,8 @@ alert("Payment Successful");
     <div className="card card-header-actions mb-4">
       <div className="card-header">
         Payment Methods
-        <button className="btn btn-sm add-payment" type="button">
-          Add Payment Method
-        </button>
+        <td><button className ="btn btn-sm add-reminder" onClick={() => setModalShowAdd(true)}>Add Payment Method</button></td>
+                <AddPayment show={modalshowadd} onHide={() => setModalShowAdd(false)} onPay={onPay}/>
       </div>
       <div className="card-body px-0">
         {/* Payment method 1*/}
@@ -66,9 +66,7 @@ alert("Payment Successful");
               <div className="text-xs text-muted">Expires 04/2024</div>
             </div>
           </div>
-          <div className="ms-4 small">
-          <button className ="btn btn-sm add-reminder">Remove</button>
-          </div>
+          
         </div>
         <hr />
         {/* Payment method 2*/}
@@ -80,23 +78,19 @@ alert("Payment Successful");
               <div className="text-xs text-muted">Expires 05/2022</div>
             </div>
           </div>
-          <div className="ms-4 small">
-          <button className ="btn btn-sm add-reminder">Remove</button>
-          </div>
+          
         </div>
         <hr />
         {/* Payment method 3*/}
         <div className="d-flex align-items-center justify-content-between px-4">
           <div className="d-flex align-items-center">
-            <i className="fab fa-cc-amex fa-2x cc-color-amex" />
+            
             <div className="ms-4">
-              <div className="small">American Express ending in 9012</div>
-              <div className="text-xs text-muted">Expires 01/2026</div>
+              <div className="small">Bank Account 1</div>
+              
             </div>
           </div>
-          <div className="ms-4 small">
-          <button className ="btn btn-sm add-reminder">Remove</button>
-          </div>
+          
         </div>
       </div>
     </div>

@@ -51,10 +51,10 @@ function MyVerticallyCenteredModal(props) {
         {/* Payment method 3*/}
         <div className="d-flex align-items-center justify-content-between px-4">
           <div className="d-flex align-items-center">
-            <i className="fab fa-cc-amex fa-2x cc-color-amex" />
+            
             <div className="ms-4">
-              <div className="small">American Express ending in 9012</div>
-              <div className="text-xs text-muted">Expires 01/2026</div>
+              <div className="small">Bank Account 1</div>
+              
             </div>
           </div>
           <div className="ms-4 small">

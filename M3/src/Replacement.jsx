@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import './form.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Navbar from './Navbar';
-
-
+import SecondNav from './SecondNav'
 const FormComponent = () => {
   const [formNumber, setFormNumber] = useState(0);
   const [shownName, setShownName] = useState('');
@@ -56,6 +55,7 @@ const FormComponent = () => {
   return (
     <div>
     <Navbar></Navbar>
+    <SecondNav></SecondNav>
     <div className="conta">
       <div className="card">
         <div className="form">

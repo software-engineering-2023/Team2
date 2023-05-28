@@ -32,7 +32,7 @@ const BankerNavBar = () => {
   };
 
   const gotoReport = () =>{
-    nav('/bankerHome');
+    nav('/bankerreports');
   };
 
 
@@ -46,7 +46,7 @@ const BankerNavBar = () => {
           Home
         </button>
         <button className="navbar-button" onClick={gotoRequests}>View Requests</button>
-        <button className="navbar-button" onClick={gotoHome}>Report Technical Issue</button>
+        <button className="navbar-button" onClick={gotoReport}>Report Technical Issue</button>
       </div>
       <div className="navbar-right">
         <IconButton style={{ color: '#ffffff' }}

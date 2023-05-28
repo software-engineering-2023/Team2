@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from './Datatable';
 import Navbar from './Navbar';
-
+import SecondNav from "./SecondNav"
 const columns = [
   {
     Header: 'Transaction ID',
@@ -197,6 +197,7 @@ const CreditTrans = () => {
   return (
     <div className="trans">
       <Navbar></Navbar>
+      <SecondNav></SecondNav>
       <DataTable columns={columns} data={data} />
     </div>
   );

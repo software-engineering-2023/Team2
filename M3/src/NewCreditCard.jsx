@@ -1,4 +1,5 @@
 import 'jquery/dist/jquery.min.js';
+import ModalCCBills from './ModalCCBills';
 import "@fortawesome/fontawesome-free/css/all.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import './new.css';
@@ -46,7 +47,7 @@ const nav =useNavigate();;
 
       const [modalShow, setModalShow] = React.useState(false);
 
-      const onPay= () => {
+      const onPay = () => {
     setModalShow(false);
     alert("Payment Successful");
       }
@@ -197,7 +198,7 @@ const nav =useNavigate();;
                 <span className="badge bg-light text-dark">Unpaid</span>
                 <td>06/14/2021</td>
                 <td><button className ="btn btn-sm add-reminder" onClick={() => setModalShow(true)}>Pay</button></td>
-                <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
+                <ModalCCBills show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
                 
               </tr>
               <tr>

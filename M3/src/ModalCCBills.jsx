@@ -12,7 +12,6 @@ function ModalCCBills(props) {
 
         else{
         props.onPay();
-        alert('Payment Successful');
         }
         // Check if all required fields are filled
         
@@ -46,7 +45,7 @@ function ModalCCBills(props) {
             </div>
           </div>
           <div className="ms-4 small">
-          <button className ="btn btn-sm add-reminder" onClick={()=>handleSubmit()}>Pay</button>
+          <button className="p-blue bg btn btn-primary h8" onClick={()=>handleSubmit()}>Pay</button>
           </div>
         </div>
         <hr />
@@ -60,21 +59,21 @@ function ModalCCBills(props) {
             </div>
           </div>
           <div className="ms-4 small">
-          <button className ="btn btn-sm add-reminder"onClick={()=>handleSubmit()}>Pay</button>
+          <button className="p-blue bg btn btn-primary h8"onClick={()=>handleSubmit()}>Pay</button>
           </div>
         </div>
         <hr />
         {/* Payment method 3*/}
         <div className="d-flex align-items-center justify-content-between px-4">
-          <div className="d-flex align-items-center">
-            
-            <div className="ms-4">
-              <div className="small">Bank Account 1</div>
+        <div className="d-flex align-items-center">
+          <i className="fas fa-dollar-sign fa-3x"></i>
+            <div className="ms-4 px-1">
+              <div className="small">Account 28472889</div>
               
             </div>
           </div>
           <div className="ms-4 small">
-          <button className ="btn btn-sm add-reminder"onClick={()=>handleSubmit()}>Pay</button>
+          <button className="p-blue bg btn btn-primary h8"onClick={()=>handleSubmit()}>Pay</button>
           </div>
         </div>
       </div>

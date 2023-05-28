@@ -197,7 +197,7 @@ const nav =useNavigate();;
                 <td>06/15/2021</td>
                 <span className="badge bg-light text-dark">Unpaid</span>
                 <td>06/14/2021</td>
-                <td><button className ="btn btn-sm add-reminder" onClick={() => setModalShow(true)}>Pay</button></td>
+                <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShow(true)}>Pay</button></td>
                 <ModalCCBills show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
                 
               </tr>

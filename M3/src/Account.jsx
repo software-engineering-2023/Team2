@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 
 const AccountSettings = () => {
   return (
-    <div className="container-fluid p-0" style={{ backgroundColor: '#1858a8' }}>
+    <div className="container-fluid p-0" style={{ backgroundColor: '#fff' }}>
         <Navbar></Navbar>
     <div className="container light-style flex-grow-1 container-p-y">
   <div className="card account-card">
@@ -26,13 +26,6 @@ const AccountSettings = () => {
             href="#account-change-password"
           >
             Change password
-          </a>
-          <a
-            className="list-group-item list-group-item-action"
-            data-toggle="list"
-            href="#account-notifications"
-          >
-            Notifications
           </a>
         </div>
       </div>

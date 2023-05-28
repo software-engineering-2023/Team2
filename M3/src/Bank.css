@@ -1,0 +1,53 @@
+.level {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 45vh; /* Adjust this value as needed */
+  }
+
+  .conto{
+    background-image: url("hands.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .flashcard {
+    width: 400px; /* Adjust the width as desired */
+    height: 300px; /* Adjust the height as desired */
+    border: 1px solid #ccc; /* Border properties */
+    border-radius: 10px; /* Adjust the value as desired for the roundness of the edges */
+    background-color: #1858a8; /* Background color for the box */
+    margin: 0 auto; /* Center the boxes horizontally */
+    margin-top: 50px; /* Adjust the margin-top value as needed */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a box shadow effect */
+    padding-left: 10px;
+  }
+
+  .kebeer{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    color: #fff;
+    font-weight: 400;
+ /* Align the text to the right */
+
+  }
+
+  .boxsection{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+
+  .accdetails{
+    color: #fff;
+    font-size: 18px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  }
+
+  .buttonsection{
+    display: flex;
+  }
+  

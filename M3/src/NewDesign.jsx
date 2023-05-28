@@ -17,10 +17,14 @@ import {
 const NewDesign = () => {
     const [basicActive, setBasicActive] = useState('tab1');
     const [basicAccount, setBasicAccount] = useState('acc1');
+    const [AccountNumber, setAccountNumber] = useState('');
     const [receiverAccountNumber, setReceiverAccountNumber] = useState('');
     const [recipientName, setRecipientName] = useState('');
     const [amount, setAmount] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const [amountRequestedError, setAmountRequestedError] = useState(false);
+    const [accounterror, setaccounterror]=useState(false);
+    const [recieveerror, setreceiveerror]=useState(false);
 
     const nav = useNavigate();
 
@@ -28,12 +32,36 @@ const NewDesign = () => {
       nav("/bankaccounttransactions");
     }
 
+    const handleAmountRequestedChange = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
+      setReceiverAccountNumber(value);
+      setAmount(!isValid);
+    };
+
+    const handleAccountNumberChange = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]{8}$/.test(value); // Check if the value contains only digits from 1 to 9
+      setAccountNumber(value);
+      setaccounterror(!isValid);
+    };
+
+    const handleFocus = (event) => {
+      event.target.removeAttribute('placeholder');
+    };
+  
+    const handleBlur = (event) => {
+      if (event.target.value === '') {
+        event.target.setAttribute('placeholder', event.target.getAttribute('data-example'));
+      }
+    };
+
     const gotoOpen = () => {
       nav("/open");
     }
 
     const gotoClose = () => {
-      nav("/open");
+      nav("/close");
     }
 
     const handleBasicClick = (value) => {
@@ -56,7 +84,7 @@ const NewDesign = () => {
         e.preventDefault();
     
         // Check if all required fields are filled
-        if (receiverAccountNumber && recipientName && amount) {
+        if (AccountNumber && receiverAccountNumber && recipientName && amount) {
           // Perform transfer logic here
           console.log('Transfer successful');
         } else {
@@ -115,7 +143,7 @@ const NewDesign = () => {
                   <p className="fw-bold mb-3">
                     IBAN: <br /> US12 1234 5678 9987 6543 210
                   </p>
-                  <button className="p-blue bg btn btn-primary h8">Close Account</button>
+                  <button onClick={gotoClose} className="p-blue bg btn btn-primary h8">Close Account</button>
                 </div>
         </MDBTabsPane>
         <MDBTabsPane show={basicAccount === 'acc2'}>
@@ -137,7 +165,7 @@ const NewDesign = () => {
                     <p className="fw-bold mb-3">
                       IBAN: <br /> US23 1234 6678 3347 2342
                     </p>
-                    <button className="p-blue bg btn btn-primary h8">Close Account</button>
+                    <button onClick={gotoClose} className="p-blue bg btn btn-primary h8">Close Account</button>
 
                   </div>
         </MDBTabsPane>
@@ -160,7 +188,7 @@ const NewDesign = () => {
                     <p className="fw-bold mb-3">
                       IBAN: <br /> US43 2344 5678 9987 6543
                     </p>
-                    <button className="p-blue bg btn btn-primary h8">Close Account</button>
+                    <button onClick={gotoClose} className="p-blue bg btn btn-primary h8">Close Account</button>
                   </div>
         </MDBTabsPane>
       </MDBTabsContent>
@@ -219,26 +247,39 @@ const NewDesign = () => {
           <form onSubmit={handleSubmit}>
           <input
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
-              type="text"
+              type="text"y
               placeholder="Your Account Number"
-              value={receiverAccountNumber}
-              onChange={(e) => setReceiverAccountNumber(e.target.value)}
+              value={AccountNumber}
+              onChange={handleAccountNumberChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              data-example='Your Account Number'
               required
             />
+            {accounterror && (
+                      <p className="error-message">Please enter an 8-digit valid Account Number</p>
+            )}
             <input
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
               type="text"
               placeholder="Recipient Account Number"
               value={receiverAccountNumber}
               onChange={(e) => setReceiverAccountNumber(e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              data-example='Recipient Account Number'
               required
             />
+            
             <input
               className={`form-control mb-3 ${submitted && !recipientName ? 'border-red' : ''}`}
               type="text"
               placeholder="Recipient Name"
               value={recipientName}
               onChange={(e) => setRecipientName(e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              data-example='Recepient Name'
               required
             />
             <input
@@ -247,6 +288,9 @@ const NewDesign = () => {
               placeholder="Amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              data-example='Amount'
               required
             />
             <button
@@ -265,7 +309,7 @@ const NewDesign = () => {
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
               type="text"
               placeholder="Your Account Number"
-              value={receiverAccountNumber}
+              value={AccountNumber}
               onChange={(e) => setReceiverAccountNumber(e.target.value)}
               required
             />

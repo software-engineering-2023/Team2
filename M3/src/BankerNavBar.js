@@ -24,7 +24,7 @@ const BankerNavBar = () => {
   };
 
   const gotoProfile = () => {
-    nav('/acc');
+    nav('/bankeraccount');
   };
 
   const gotoRequests = () =>{
@@ -32,8 +32,12 @@ const BankerNavBar = () => {
   };
 
   const gotoReport = () =>{
-    nav('/bankerreports');
+    nav('/bankerissues');
   };
+
+  const gotoAccount = () =>{
+    nav('/bankeraccount');
+  }
 
 
   return (

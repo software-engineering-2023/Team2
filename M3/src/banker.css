@@ -1,9 +1,10 @@
 .boxwrap{
-    margin-top: 4vh;
+    margin-top: 30vh;
     display: flex;
     flex-wrap: wrap; /* Allow boxes to wrap to a new line */
     align-items: center;
     justify-content: center;
+    gap: 20px;
   }
 
 .boxwraplevel1{

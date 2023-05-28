@@ -6,7 +6,10 @@ import SecondNav from './SecondNav'
 const FormComponent = () => {
   const [formNumber, setFormNumber] = useState(0);
   const [shownName, setShownName] = useState('');
-  const stepList = ['Personal Information', 'Employment/Income', 'Financial Information', 'Credit History'];
+  const [emailError, setEmailError] = useState(false);
+  const [accountNumber, setAccountNumber] = useState('');
+  const [accountNumberError, setAccountNumberError] = useState(false);
+  const stepList = ['Personal Information', 'Card Information', 'Reason for Replacement',];
 
   const handleNextClick = () => {
     if (!validateForm()) {
@@ -17,6 +20,39 @@ const FormComponent = () => {
 
   const handleBackClick = () => {
     setFormNumber((prevNumber) => prevNumber - 1);
+  };
+
+  const handleEmailChange = (event) => {
+    const emailValue = event.target.value;
+    if (!validateEmail(emailValue)) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+  };
+
+  const validateEmail = (email) => {
+    // Simple email format validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
+  const handleAccountNumberChange = (event) => {
+    const value = event.target.value;
+    const isValid = /^[1-9]{8}$/.test(value); // Check if the value is exactly 8 digits from 1 to 9
+    setAccountNumber(value);
+    setAccountNumberError(!isValid);
+  };
+
+
+  const handleFocus = (event) => {
+    event.target.removeAttribute('placeholder');
+  };
+
+  const handleBlur = (event) => {
+    if (event.target.value === '') {
+      event.target.setAttribute('placeholder', event.target.getAttribute('data-example'));
+    }
   };
 
   const handleSubmitClick = () => {
@@ -71,13 +107,10 @@ const FormComponent = () => {
                 Enter your personal information.
               </p>
               <p className={`step-number-content ${formNumber === 1 ? 'active' : 'd-none'}`}>
-                Enter your employment/income details.
+                Enter your credit Card Information details.
               </p>
               <p className={`step-number-content ${formNumber === 2 ? 'active' : 'd-none'}`}>
-                Enter your financial information.
-              </p>
-              <p className={`step-number-content ${formNumber === 3 ? 'active' : 'd-none'}`}>
-                Enter your credit history details.
+                Enter the Reason for Replacement.
               </p>
             </div>
             <ul className="progress-bar">
@@ -97,55 +130,41 @@ const FormComponent = () => {
               <div className="input-text">
                 <div className="input-div">
                     <label htmlFor="user_name">First Name</label>
-                  <input type="text" required id="user_name" />
+                    <input type="text" required id="user_name" placeholder="e.g Jack"  onFocus={handleFocus} onBlur={handleBlur} data-example="e.g. Jack" />
                 </div>
                 <div className="input-div">
                 <label>Last Name</label>
-                  <input type="text" required />
+                  <input type="text" required placeholder="e.g Wilder" onFocus={handleFocus} onBlur={handleBlur} data-example="e.g Wilder"/>
                 </div>
               </div>
               <div className="input-text">
-                <div className="input-div">
-                <label>Phone number</label>
-                  <input type="text" required />
-                  
-                </div>
-                <div className="input-div">
+              <div className="input-div">
+                <div className="input-conto">
                     <label >E-mail Address</label>
-                  <input type="text" required />
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. example@example.com"
+                      onFocus={handleFocus}
+                      onBlur={handleBlur}
+                      data-example="e.g. example@example.com"
+                      onChange={handleEmailChange} // Add onChange event listener
+                    />
+                    {emailError && (
+                      <p className="error-message">Please enter a valid email address.</p>
+                    )}
+                    </div>
                 
                 </div>
               </div>
               <div className="input-text">
                 <div className="input-div">
-                <label>Select Country</label>
-                  <select>
-                    <option>India</option>
-                    <option>France</option>
-                    <option>UK</option>
-                    <option>USA</option>
-                    <option>Germany</option>
-                    <option>Russia</option>
-                    <option>China</option>
-                    <option>Japan</option>
-                    <option>Pakistan</option>
-                  </select>
-                </div>
-                <div className="input-div">
-                <label>Select City</label>
-                  <select>
-                    <option>New Delhi</option>
-                    <option>Paris</option>
-                    <option>London</option>
-                    <option>Washington D.C.</option>
-                    <option>Berlin</option>
-                    <option>Moscow</option>
-                    <option>Bejing</option>
-                    <option>Tokyo</option>
-                    <option>Islamabad</option>
-                  </select>
+                <label>Address</label>
+                  <input type="text" required />
+                  
                 </div>
               </div>
+              
               <div className="buttons">
                 <button className="next_button" onClick={handleNextClick}>
                   Next Step
@@ -154,35 +173,36 @@ const FormComponent = () => {
             </div>
             <div className={`main ${formNumber === 1 ? 'active' : ''}`}>
               <div className="text">
-                <h2>Employment and Income</h2>
+                <h2>Card Information</h2>
               </div>
               <div className="input-text">
                 <div className="input-div">
-                    <label>Current Employer</label>
-                  <input type="text" required />
-                </div>
-                <div className="input-div">
-                  <label>Monthly Income</label>
+                    <label>Credit Card Number</label>
                   <input type="text" required />
                 </div>
               </div>
               <div className="input-text">
                 <div className="input-div">
-                  <label>Length of employment with current employer</label>
+                    <label>Card Holder Name</label>
                   <input type="text" required />
                 </div>
               </div>
               <div className="input-text">
                 <div className="input-div">
-                  <label>Job Title</label>
-                  <select>
-                    <option>Select a Job Title</option>
-                    <option>Junior Employee</option>
-                    <option>Senior Employee</option>
-                    <option>Manager</option>
-                    <option>Part-time</option>
-                    <option>Executive</option>
-                  </select>
+                  <label>Account Number related to your Card</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g 12345678"
+                    value={accountNumber}
+                    onChange={handleAccountNumberChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    data-example="e.g 12345678"
+                  />
+                  {accountNumberError && (
+                    <p className="error-message">Please enter a valid 8-digit account number.</p>
+                  )}
                 </div>
               </div>
               <div className="buttons button_space">
@@ -196,67 +216,29 @@ const FormComponent = () => {
             </div>
             <div className={`main ${formNumber === 2 ? 'active' : ''}`}>
               <div className="text">
-                <h2>Financial Information</h2>
+                <h2>Reason for Replacement</h2>
               </div>
               <div className="input-text">
-                <div className="input-div">
-                  <label>Account Number</label>
-                  <input type="text" required />
-                </div>
-              </div>
-              <div className="input-text">
-                <div className="input-div"> 
-                  <label>Account Balance</label> 
-                  <input type="text" required />
-                </div>
-              </div>
-              <div className="input-text">
-                <div className="input-div">
-                  <label>Monthly Expenses</label>
-                  <input type="text" required />
+              <div className="input-div">
+                  <label>Reason for Replacement</label>
+                  <select>
+                    <option>Select a Reason</option>
+                    <option>Theft</option>
+                    <option>Loss</option>
+                    <option>Damage</option>
+                  </select>
                 </div>
               </div>
               <div className="buttons button_space">
                 <button className="back_button" onClick={handleBackClick}>
                   Back
                 </button>
-                <button className="next_button" onClick={handleNextClick}>
-                  Next Step
-                </button>
-              </div>
-            </div>
-            <div className={`main ${formNumber === 3 ? 'active' : ''}`}>
-              <div className="text">
-                <h2>Credit History</h2>
-              </div>
-              <div className="input-text">
-                <div className="input-div">
-                  <label>Details regarding existing loans or credit cards</label>
-                  <input type="text" required />
-                </div>
-              </div>
-              <div className="input-text">
-                <div className="input-div"> 
-                  <label>Credit utilization</label> 
-                  <input type="text" required />
-                </div>
-              </div>
-              <div className="input-text">
-                <div className="input-div">
-                  <label>Debts or late payments (if any)</label>
-                  <input type="text" required />
-                </div>
-              </div>
-              <div className="buttons button_space">
-                <button className="back_button" onClick={handleBackClick}>
-                  Back
-                </button>
-                <button className="submit_button" onClick={handleSubmitClick}>
+                <button className="next_button" onClick={handleSubmitClick}>
                   Submit
                 </button>
               </div>
             </div>
-            <div className={`main ${formNumber === 4 ? 'active' : ''}`}>
+            <div className={`main ${formNumber === 3 ? 'active' : ''}`}>
               <svg
                 className="checkmark"
                 xmlns="http://www.w3.org/2000/svg"

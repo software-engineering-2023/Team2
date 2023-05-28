@@ -25,6 +25,8 @@ const FormComponent = () => {
   const [amountRequestedError, setAmountRequestedError] = useState(false);
   const [LoanDuration, setLoanDuration] = useState('');
   const [LoanDurationError, setLoanDurationError] = useState(false);
+  const [purpose, setpurpose] = useState('');
+  const [purposeError, setpurposeError] = useState(false);
 
 
 
@@ -37,9 +39,16 @@ const FormComponent = () => {
     setFormNumber((prevNumber) => prevNumber + 1);
   };
 
+  const handlePurposeChange = (event) => {
+    const value = event.target.value;
+    const isValid = /^[A-Za-z]+$/.test(value); // Check if the value contains only digits from 1 to 9
+    setpurpose(value);
+    setpurposeError(!isValid);
+  };
+
   const handleAmountRequestedChange = (event) => {
     const value = event.target.value;
-    const isValid = /^[1-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
+    const isValid = /^[0-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
     setAmountRequested(value);
     setAmountRequestedError(!isValid);
   };
@@ -50,7 +59,7 @@ const FormComponent = () => {
 
   const handleAccountBalanceChange = (event) => {
     const value = event.target.value;
-    const isValid = /^[1-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
+    const isValid = /^[0-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
     setAccountBalance(value);
     setAccountBalanceError(!isValid);
   };
@@ -64,12 +73,6 @@ const FormComponent = () => {
     setMonthlyExpensesError(!isValid);
   };
 
-  const handleLoanDurationChange = (event) => {
-    const value = event.target.value;
-    const isValid = /^[1-9][0-9]*$/.test(value); // Check if the value contains only digits from 1 to 9
-    setMonthlyExpenses(value);
-    setMonthlyExpensesError(!isValid);
-  };
   
   const handleMonthlyIncomeChange = (event) => {
     const value = event.target.value;
@@ -106,17 +109,6 @@ const FormComponent = () => {
     }
   };
 
-  const handleBlurPhone = (event) => {
-    const phoneNumberInput = event.target;
-    const phoneNumber = phoneNumberInput.value.replace(/\D/g, ''); // Remove non-digit characters
-  
-    if (phoneNumber.length === 10) {
-      phoneNumberInput.setAttribute('placeholder', '+20 ' + phoneNumber);
-    } else {
-      phoneNumberInput.value = ''; // Clear the input if not 10 digits
-      phoneNumberInput.setAttribute('placeholder', 'e.g. 1234567890');
-    }
-  };
   
 
   const handleEmailChange = (event) => {
@@ -202,12 +194,6 @@ const FormComponent = () => {
                 </div>
               </div>
               <div className="input-text">
-                <div className="input-div">
-                <label>Phone number</label>
-                  
-                </div>
-              </div>
-              <div className="input-text">
               <div className="input-div">
                 <div className="input-conto">
                     <label >E-mail Address</label>
@@ -261,20 +247,27 @@ const FormComponent = () => {
                     data-example="e.g 20000"
                   />
                   {monthlyIncomeError && (
-                    <p className="error-message">Please enter a valid value containing only digits from 0 to 9, excluding 0 as the first digit</p>
+                    <p className="error-message">Please enter a valid value.</p>
                   )}
                 </div>
               </div>
               <div className="input-text">
                 <div className="input-div">
                   <label>Job Title</label>
-                  <select required defaultValue="">
-                    <option>Junior Employee</option>
-                    <option>Senior Employee</option>
-                    <option>Manager</option>
-                    <option>Part-time</option>
-                    <option>Executive</option>
-                  </select>
+                  <input
+                      type="text"
+                      required
+                      placeholder="e.g. Savings Account"
+                      value={purpose}
+                      onChange={handlePurposeChange}
+                      onFocus={handleFocus}
+                      onBlur={handleBlur}
+                      data-example="e.g. Savings Account"
+                      
+                    />
+                    {purposeError && (
+                        <p className="error-message">Please enter a word description</p>
+                      )}
                 </div>
               </div>
               <div className="buttons button_space">

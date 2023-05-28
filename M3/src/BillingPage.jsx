@@ -53,7 +53,7 @@ alert("Payment Successful");
     <div className="card card-header-actions mb-4">
       <div className="card-header">
         Payment Methods
-        <td><button className ="btn btn-sm add-reminder" onClick={() => setModalShowAdd(true)}>Add Payment Method</button></td>
+        <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShowAdd(true)}>Add Payment Method</button></td>
                 <AddPayment show={modalshowadd} onHide={() => setModalShowAdd(false)} onPay={onPay}/>
       </div>
       <div className="card-body px-0">
@@ -84,9 +84,9 @@ alert("Payment Successful");
         {/* Payment method 3*/}
         <div className="d-flex align-items-center justify-content-between px-4">
           <div className="d-flex align-items-center">
-            
-            <div className="ms-4">
-              <div className="small">Bank Account 1</div>
+          <i className="fas fa-dollar-sign fa-3x"></i>
+            <div className="ms-4 px-1">
+              <div className="small">Account: 21434892</div>
               
             </div>
           </div>
@@ -135,8 +135,8 @@ alert("Payment Successful");
                 <td>
                   <span className="badge bg-light text-dark">Unpaid</span>
                 </td>
-                <td><button className ="btn btn-sm add-reminder" onclick="handleReminderClick()">Set Reminder</button></td>
-                <td><button className ="btn btn-sm add-reminder" onClick={() => setModalShow(true)}>Pay</button></td>
+                <td><button className="p-blue bg btn btn-primary h8" onclick="handleReminderClick()">Set Reminder</button></td>
+                <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShow(true)}>Pay</button></td>
                 <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
               </tr>
               <tr>

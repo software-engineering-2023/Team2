@@ -35,7 +35,7 @@ const DataTable = ({ columns, data }) => {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
                 {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()} key={column.id} className="white-header">
+                  <th {...column.getHeaderProps()} key={column.id} className="control-head">
                     {column.render('Header')}
                     <div>
                       {column.id !== 'doc' && column.id !== 'actions' && (
@@ -61,7 +61,7 @@ const DataTable = ({ columns, data }) => {
                 <tr {...row.getRowProps()} key={row.id}>
                   {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()} key={cell.column.id} className="white-text">
+                      <td {...cell.getCellProps()} key={cell.column.id} className="control">
                         {cell.column.id === 'actions' ? (
                           <div className="button-container">
                             {cell.render('Cell')}

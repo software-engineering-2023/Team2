@@ -18,7 +18,7 @@ const popover = (
 );
 return(
   <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-    <Button>Notifications</Button>
+    <button className='navbar-button'>Notifications</button>
   </OverlayTrigger>
 );
 };

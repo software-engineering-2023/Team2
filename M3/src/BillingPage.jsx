@@ -12,9 +12,19 @@ const BillingPage = () => {
   const [paymentSuccess, setPaymentSuccess] = React.useState(false);
   const [carddone,setcarddone]=React.useState(false);
   const [accdone,setaccdone]=React.useState(false);
+  const [reminder,setreminder]=React.useState(false);
+  const setcarddone2=( value)=>{
+setcarddone(true);
+  }
+  const setaccdone2=( value)=>{
+    setaccdone(value);
+      }
   const onPay= () => {
 //setModalShow(false);
 //alert("Payment Successful");
+  }
+  const handleReminderClick = () =>{
+    setreminder(true);
   }
     return (
       
@@ -61,7 +71,7 @@ const BillingPage = () => {
         Payment Methods
         <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShowAdd(true)}>Add Payment Method</button></td>
                 <AddPayment show={modalshowadd} onHide={() => setModalShowAdd(false)} onPay={onPay} carddone={carddone}
-                setcarddone={setcarddone} accdone={accdone} setaccdone={setaccdone}/>
+                setcarddone={setcarddone2} accdone={accdone} setaccdone={setaccdone} />
       </div>
       <div className="card-body px-0">
         {/* Payment method 1*/}
@@ -99,17 +109,10 @@ const BillingPage = () => {
           </div>
         </div>
       </div>
-      <hr />
-      {carddone && <div className="d-flex align-items-center justify-content-between px-4">
-          <div className="d-flex align-items-center">
-            <i className="fab fa-cc-mastercard fa-2x cc-color-mastercard" />
-            <div className="ms-4">
-              <div className="small">Mastercard ending in 5678</div>
-              <div className="text-xs text-muted">Expires 05/2022</div>
-            </div>
-          </div>
-          </div>}
-      {accdone && <div className="d-flex align-items-center justify-content-between px-4">
+      {accdone && <hr />}
+      {accdone &&
+      
+         <div className="d-flex align-items-center justify-content-between px-4">
           <div className="d-flex align-items-center">
           <i className="fas fa-dollar-sign fa-3x"></i>
             <div className="ms-4 px-1">
@@ -117,8 +120,30 @@ const BillingPage = () => {
               
             </div>
           </div>
+          
         </div>
+        
+        
+        
         }
+         {carddone && <hr />}
+      {carddone && 
+      
+      <div className="d-flex align-items-center justify-content-between px-4">
+          <div className="d-flex align-items-center">
+            <i className="fab fa-cc-mastercard fa-2x cc-color-mastercard" />
+            <div className="ms-4">
+              <div className="small">Mastercard ending in 5678</div>
+              <div className="text-xs text-muted">Expires 05/2022</div>
+            </div>
+          </div>
+          
+          </div>
+          
+
+          
+          }
+      
      
     </div>
     {/* Billing history card*/}
@@ -163,7 +188,8 @@ const BillingPage = () => {
                 {!paymentSuccess&&<span className="badge bg-light text-dark">Unpaid</span>}
                 {paymentSuccess&&<span className="badge bg-success">Paid</span>}
                 </td>
-                <td><button className="p-blue bg btn btn-primary h8" onclick="handleReminderClick()">Set Reminder</button></td>
+                {reminder && <td><p >Reminder Set!</p></td>}
+                {!reminder && !paymentSuccess &&<td><button className="p-blue bg btn btn-primary h8" onClick={()=>handleReminderClick()}>Set Reminder</button></td>}
                 {!paymentSuccess&&<td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShow(true)}>Pay</button></td>}
 
                 <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} onPay={onPay} paymentSuccess={paymentSuccess}

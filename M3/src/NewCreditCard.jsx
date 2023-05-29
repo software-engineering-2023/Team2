@@ -46,12 +46,20 @@ const nav =useNavigate();;
       }
 
       const [modalShow, setModalShow] = React.useState(false);
-
+const  [Amounttobepaid,setAmounttobepaid]=React.useState(30);
       const onPay = () => {
     setModalShow(false);
-    alert("Payment Successful");
+    //alert("Payment Successful");
+
       }
-      
+      const changeAmount = (Amount) =>{
+        setAmounttobepaid(Amounttobepaid-Amount);
+      }
+      const[cashback1,setCashback1]=useState(false);
+      const[cashback2,setCashback2]=useState(false);
+      const[cashback3,setCashback3]=useState(false);
+      const[paidfully,setpaidfully]=useState(false);
+      const[paidpartially,setpaidpartially]=useState(false);
   return (
     <div className="bigboss">
         <Navbar></Navbar>
@@ -88,11 +96,15 @@ const nav =useNavigate();;
                   <p className="ps-3 text-muted fw-bold h6 mb-0">
                     Card Balance
                   </p>
-                  <p className="h1 fw-bold d-flex">
-                    <span className="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1" />
+                  {!cashback1 &&<p className="h1 fw-bold d-flex">
+                   <span className="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1" />
                     7,965 <span className="text-muted">.23</span>
-                    
-                  </p>
+                  </p>}
+                  {cashback1 &&<p className="h1 fw-bold d-flex">
+                   <span className="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1" />
+                   8,363 <span className="text-muted">.49</span>
+                  </p>}
+
                 </div>
                 <div className="col-md-4">
                   <p className="fw-bold mb-3">
@@ -100,10 +112,13 @@ const nav =useNavigate();;
                   <p>  </p>
                   <p>Credit Limit : 20,000</p>
                   <p> </p>
-                  <p>Current Points : 4000</p>
-                  <button className="p-blue bg btn btn-primary h8">Redeem Points for 5% Cashback</button>
+                  {!cashback1 && <p>Current Points : 4000</p>}
+                  {cashback1 && <p>Current Points : 0</p>}
+                 {!cashback1 && <button className="p-blue bg btn btn-primary h8" onClick={()=>{
+                    setCashback1(true);
+                  }}>Redeem Points for 5% Cashback</button>
+                 }
                   </p>
-
                 </div>
         </MDBTabsPane>
         <MDBTabsPane show={basicCard === 'card2'}>
@@ -112,11 +127,16 @@ const nav =useNavigate();;
                   <p className="ps-3 text-muted fw-bold h6 mb-0">
                     Card Balance
                   </p>
-                  <p className="h1 fw-bold d-flex">
+                  {!cashback2 && <p className="h1 fw-bold d-flex">
                     <span className="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1" />
                     15,000 <span className="text-muted">.98</span>
                     
-                  </p>
+                  </p>}
+                  {cashback2 && <p className="h1 fw-bold d-flex">
+                    <span className="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1" />
+                    15,150 <span className="text-muted">.00</span>
+                    
+                  </p>}
                 </div>
                 <div className="col-md-4">
                   <p className="fw-bold mb-3">
@@ -124,8 +144,11 @@ const nav =useNavigate();;
                   <p>  </p>
                   <p>Credit Limit : 40,000</p>
                   <p> </p>
-                  <p>Current Points : 7237</p>
-                  <button className="p-blue bg btn btn-primary h8">Redeem Points for 10% Cashback</button>
+                  {!cashback2 && <p>Current Points : 7237</p>}
+                  {cashback2 && <p>Current Points : 0</p>}
+                  {!cashback2 && <button onClick={()=>{
+                    setCashback2(true);
+                  }}className="p-blue bg btn btn-primary h8">Redeem Points for 10% Cashback</button>}
                   </p>
 
                 </div>
@@ -136,11 +159,16 @@ const nav =useNavigate();;
                   <p className="ps-3 text-muted fw-bold h6 mb-0">
                     Card Balance
                   </p>
-                  <p className="h1 fw-bold d-flex">
+                 {!cashback3 && <p className="h1 fw-bold d-flex">
                     <span className="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1" />
                     65,232 <span className="text-muted">.45</span>
                     
-                  </p>
+                  </p>}
+                  {cashback3 && <p className="h1 fw-bold d-flex">
+                    <span className="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1" />
+                    69,798 <span className="text-muted">.72</span>
+                    
+                  </p>}
                 </div>
                 <div className="col-md-4">
                   <p className="fw-bold mb-3">
@@ -148,8 +176,9 @@ const nav =useNavigate();;
                   <p>  </p>
                   <p>Credit Limit : 70,000</p>
                   <p> </p>
-                  <p>Current Points : 2300</p>
-                  <button className="p-blue bg btn btn-primary h8">Redeem Points for 7% Cashback</button>
+                  {!cashback3 &&<p>Current Points : 2300</p>}
+                  {cashback3 &&<p>Current Points : 0</p>}
+                  {!cashback3 && <button className="p-blue bg btn btn-primary h8" onClick={()=>{setCashback3(true)}}>Redeem Points for 7% Cashback</button>}
                   </p>
 
                 </div>
@@ -193,12 +222,15 @@ const nav =useNavigate();;
             <tbody>
               <tr>
                 <td>**** **** **** 1111</td>
-                <td>$29.99</td>
+                <td>${Amounttobepaid}</td>
                 <td>06/15/2021</td>
-                <span className="badge bg-light text-dark">Unpaid</span>
+                {!paidfully && !paidpartially && <span className="badge bg-light text-dark">Unpaid</span>}
+                {paidpartially && !paidfully && <span className="badge bg-light text-dark">Partially Paid</span>}
+                {paidfully && <span className="badge bg-success">Paid</span>}
                 <td>06/14/2021</td>
                 <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShow(true)}>Pay</button></td>
-                <ModalCCBills show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
+                <ModalCCBills show={modalShow} onHide={() => setModalShow(false)} setpaidpartially={setpaidpartially} changeAmount={changeAmount} 
+                setpaidfully={setpaidfully} setAmounttobepaid={setAmounttobepaid} Amounttobepaid={Amounttobepaid} onPay={onPay}/>
                 
               </tr>
               <tr>

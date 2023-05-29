@@ -2,17 +2,44 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 function ModalCCBills(props) {
-    const [Amount, setAmount] = useState('');
-   
-    const handleSubmit = () => {
-        if(!Amount)
-        
-        alert('Payment not Successful');
-        
+    const [Amount, setAmount] = useState(0);
+    const [amounttobepaiderror,setamounttobepaiderror]=useState(false);
+    const [paid,setpaid]=useState(false);
+   const handlePay = ()  => {
+      const value = props.Amounttobepaid;
+      if(Amount > value || Amount === 0)
+      setamounttobepaiderror(true);
+      else{ //props.setAmounttobepaid((value)-Amount);
+        props.changeAmount(Amount);
+        setpaid(true);
 
-        else{
+        if(Amount < value ) 
+        props.setpaidpartially(true);
+        else
+        props.setpaidfully(true);
+
+       // setTimeout(setpaid(false),1000)
+      //setpaid(false);
+      }
+      
+      
+
+    }
+    const onclose = () => {
+      setpaid(false);
+      props.onHide();
+
+    }
+   
+   const handleChange = (e) => {
+    setAmount(e.target.value)
+      
+       
+    }
+    const handleSubmit = () => {
+        if(Amount && !amounttobepaiderror)
         props.onPay();
-        }
+        
         // Check if all required fields are filled
         
       };
@@ -24,11 +51,24 @@ function ModalCCBills(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        {!paid && <Modal.Title id="contained-modal-title-vcenter">
          Select Payment Method
-        </Modal.Title>
+        </Modal.Title>}
+        {paid && <Modal.Title id="contained-modal-title-vcenter">
+         Payment Successful!
+        </Modal.Title>}
       </Modal.Header>
       <Modal.Body>
+      {paid? (
+          <div>
+            <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+              <path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+            <p></p>
+          </div>
+        ) : (
+        <div>
             {/* Payment methods card*/}
     <div className="card card-header-actions mb-4">
       <div className="card-header">
@@ -45,7 +85,7 @@ function ModalCCBills(props) {
             </div>
           </div>
           <div className="ms-4 small">
-          <button className="p-blue bg btn btn-primary h8" onClick={()=>handleSubmit()}>Pay</button>
+          <button className="p-blue bg btn btn-primary h8" onClick={()=>handlePay()}>Pay</button>
           </div>
         </div>
         <hr />
@@ -59,7 +99,7 @@ function ModalCCBills(props) {
             </div>
           </div>
           <div className="ms-4 small">
-          <button className="p-blue bg btn btn-primary h8"onClick={()=>handleSubmit()}>Pay</button>
+          <button className="p-blue bg btn btn-primary h8"onClick={()=>handlePay()}>Pay</button>
           </div>
         </div>
         <hr />
@@ -73,7 +113,7 @@ function ModalCCBills(props) {
             </div>
           </div>
           <div className="ms-4 small">
-          <button className="p-blue bg btn btn-primary h8"onClick={()=>handleSubmit()}>Pay</button>
+          <button className="p-blue bg btn btn-primary h8"onClick={()=>handlePay()}>Pay</button>
           </div>
         </div>
       </div>
@@ -83,12 +123,14 @@ function ModalCCBills(props) {
               type="text"
               placeholder="Amount to Pay"
               value={Amount}
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={handleChange}
               required
-            />
+            /> 
+            {amounttobepaiderror && <p className="error-message">Please enter a correct value less than or equal the required .</p>}
+            </div> ) }
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={()=>onclose()}>Close</Button>
       </Modal.Footer>
     </Modal>
   );

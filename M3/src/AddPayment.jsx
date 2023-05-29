@@ -66,7 +66,7 @@ const AddPayment = (props) => {
       
       const handleSubmit = (e) => {
           e.preventDefault();
-      
+          setSubmitted(true);
           // Check if all required fields are filled
           if (receiverAccountNumber && AccountNumber) {
             // Perform transfer logic here
@@ -74,20 +74,30 @@ const AddPayment = (props) => {
           } else {
             // Display error message or handle validation logic
             console.log('Please fill in all required fields');
-            setSubmitted(true);
+           
           }
         };
 
         const finished = () => {
             setSubmitted(true);
-            if(submitted && receiverAccountNumber && AccountNumber  && !accounterror)
-            {props.onHide();
-            props.setaccdone(true);}
+            if( receiverAccountNumber && AccountNumber  && !accounterror)
+            {//props.onHide();
+              setaccdone2(true);
+            props.setaccdone(true);
+          }
         };
+        const finished2 = () => {
+          setSubmitted(true);
+          if(receiverAccountNumber && AccountNumber  && !accounterror)
+          {//props.onHide();s
+            
+          props.setaccdone(true);}
+      };
         const cardFinished = () => {
             setSubmitted(true);
-            if(submitted && CardNumber && date && CCHolderName && CVV && !CardNumberError && !dateError && !CVVError)
-            {props.onHide();
+            if(CardNumber && date && CCHolderName && CVV && !CardNumberError && !dateError && !CVVError)
+            {//props.onHide();
+              setcarddone2(true);
             props.setcarddone(true);}
         };
 
@@ -99,6 +109,19 @@ const AddPayment = (props) => {
           if (event.target.value === '') {
             event.target.setAttribute('placeholder', event.target.getAttribute('data-example'));
           }
+          
+          }
+          const [accdone2,setaccdone2]=useState(false);
+          const [carddone2,setcarddone2]=useState(false);
+          
+          const onclose=()=>{
+            props.onHide();
+            if(props.accdone)
+            {setaccdone2(false);
+            }
+            else
+            {setcarddone2(false);
+            }
         };
     return(
     <Modal
@@ -113,13 +136,13 @@ const AddPayment = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      {props.carddone || props.accdone ? (
+      {accdone2 || carddone2 ? (
           <div>
             <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
               <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
               <path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
             </svg>
-            <p>Payment Added Successfully!</p>
+            <p></p>
           </div>
         ) :(
       <div className="col-md-5 col-12 ps-md-5 p-0">
@@ -241,7 +264,9 @@ const AddPayment = (props) => {
         </div>)}
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={()=>{
+           onclose()
+        }}>Close</Button>
         
       </Modal.Footer>
     </Modal>

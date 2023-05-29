@@ -13,8 +13,12 @@ import {
     MDBTabsContent,
     MDBTabsPane
   } from 'mdb-react-ui-kit';
+  import { FaExclamationTriangle } from 'react-icons/fa';
+import { Warning } from '@material-ui/icons';
+import WarningModal from './WarningModal';
 
 const NewDesign = () => {
+  //internal
     const [basicActive, setBasicActive] = useState('tab1');
     const [basicAccount, setBasicAccount] = useState('acc1');
     const [AccountNumber, setAccountNumber] = useState('');
@@ -24,7 +28,7 @@ const NewDesign = () => {
     const [recipientName, setRecipientName] = useState('');
     const [amount, setAmount] = useState('');
     const [amountRequestedError, setAmountRequestedError] = useState(false);
-    
+    //domestic
     const [AccountNumberdom, setAccountNumberdom] = useState('');
     const [accounterrordom, setaccounterrordom]=useState(false);
     const [receiverAccountNumberdom, setReceiverAccountNumberdom] = useState('');
@@ -32,7 +36,7 @@ const NewDesign = () => {
     const [recipientNamedom, setRecipientNamedom] = useState('');
     const [amountdom, setAmountdom] = useState('');
     const [amountRequestedErrordom, setAmountRequestedErrordom] = useState(false);
-
+    //international
     const [AccountNumberint, setAccountNumberint] = useState('');
     const [accounterrorint, setaccounterrorint]=useState(false);
     const [receiverAccountNumberint, setReceiverAccountNumberint] = useState('');
@@ -119,6 +123,26 @@ const handleReceiverAccountNumberChangeint = (event) => {
       setAmountRequestedErrorint(!isValid);
     };
 
+    const [modalShow, setModalShow] = React.useState(false);
+    const [yes,setyes]=useState(false);
+       const handleYes=()=>{
+        setyes(true);
+        setAccountNumber('');
+        setAccountNumberdom('');
+        setAccountNumberint('');
+        setAmount('');
+        setAmountdom('');
+        setAmountint('');
+        setReceiverAccountNumber('');
+        setReceiverAccountNumberdom('');
+        setReceiverAccountNumberint('');
+        setRecipientName('');
+        setRecipientNamedom('');
+        setswift('');
+        
+
+       }
+
     
 
     const handleFocus = (event) => {
@@ -157,10 +181,15 @@ const handleReceiverAccountNumberChangeint = (event) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
     
         // Check if all required fields are filled
-        if (AccountNumber && receiverAccountNumber && recipientName && amount) {
+        if ((AccountNumber && receiverAccountNumber && recipientName && amount && !accounterror && !recieveerror && !amountRequestedError) 
+        || (AccountNumberdom && receiverAccountNumberdom && amountdom && !accounterrordom && !recieveerrordom && !amountRequestedErrordom) ||
+        (AccountNumberint && receiverAccountNumberint && swift && amountint && !accounterrorint && !recieveerrorint && !swifterror && !amountRequestedErrorint)) {
           // Perform transfer logic here
+          
+            setModalShow(true);
           console.log('Transfer successful');
         } else {
           // Display error message or handle validation logic
@@ -201,7 +230,11 @@ const handleReceiverAccountNumberChangeint = (event) => {
       <MDBTabsContent>
         <MDBTabsPane show={basicAccount === 'acc1'}>
         <div className="col-md-8 ps-0">
-                    
+        <div>
+        <div>
+      
+    </div>
+    </div>
                   <p className="ps-3 text-muted fw-bold h6 mb-0">
                     Account Balance
                   </p>
@@ -372,10 +405,12 @@ const handleReceiverAccountNumberChangeint = (event) => {
             {amountRequestedError && <p className="error-message">Please enter a valid number.</p>}
             <button
               className="btn btn-primary btn-block"
-              onClick={() => setSubmitted(true)}
+              onClick={() => {setSubmitted(true)
+              }}
             >
               Make Transfer
             </button>
+            <WarningModal show={modalShow} onHide={() => setModalShow(false) } handleYes={handleYes} yes={yes} setyes={setyes}></WarningModal>
           </form>
         </MDBTabsPane>
 
@@ -422,7 +457,8 @@ const handleReceiverAccountNumberChangeint = (event) => {
             {amountRequestedErrordom && <p className="error-message">Please enter a valid number.</p>}
             <button
               className="btn btn-primary btn-block"
-              onClick={() => setSubmitted(true)}
+              onClick={() => {setSubmitted(true)
+                }}
             >
               Make Transfer
             </button>
@@ -482,7 +518,8 @@ const handleReceiverAccountNumberChangeint = (event) => {
             {amountRequestedErrorint && <p className="error-message">Please enter a valid number.</p>}
             <button
               className="btn btn-primary btn-block"
-              onClick={() => setSubmitted(true)}
+              onClick={() => {setSubmitted(true)
+                }}
             >
               Make Transfer
             </button>

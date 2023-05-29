@@ -195,7 +195,7 @@ const CarLoan = () => {
                       onChange={handleEmailChange} // Add onChange event listener
                     />
                     {emailError && (
-                      <p className="error-message">Please enter a valid email address.</p>
+                      <p className="error-message">Please enter a valid email address. ex@ex.com.</p>
                     )}
                     </div>
                 
@@ -303,7 +303,7 @@ const CarLoan = () => {
                     data-example="e.g 10000"
                   />
                   {accountBalanceError && (
-                    <p className="error-message">Please enter a valid value containing only digits from 0 to 9, excluding 0 as the first digit.</p>
+                    <p className="error-message">Please enter a valid value containig only digits.</p>
                   )}
                 </div>
               </div>
@@ -321,7 +321,7 @@ const CarLoan = () => {
                     data-example="e.g 7500"
                   />
                   {monthlyExpensesError && (
-                    <p className="error-message">Please enter a valid value containing only digits from 0 to 9, excluding 0 as the first digit.</p>
+                    <p className="error-message">Please enter a valid value containing only digits.</p>
                   )}
                 </div>
               </div>
@@ -351,7 +351,7 @@ const CarLoan = () => {
                       data-example="e.g. 16000"
                     />
                     {amountRequestedError && (
-                      <p className="error-message">Please enter a valid value.</p>
+                      <p className="error-message">Please enter a valid value containing only digits.</p>
                     )}
                   </div>
                 </div>

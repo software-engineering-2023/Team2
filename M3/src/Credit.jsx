@@ -190,7 +190,7 @@ const FormComponent = () => {
                       onChange={handleEmailChange} // Add onChange event listener
                     />
                     {emailError && (
-                      <p className="error-message">Please enter a valid email address.</p>
+                      <p className="error-message">Please enter a valid email address. ex@ex.com.</p>
                     )}
                     </div>
                 
@@ -230,7 +230,7 @@ const FormComponent = () => {
                     data-example="e.g 20000"
                   />
                   {monthlyIncomeError && (
-                    <p className="error-message">Please enter a valid value.</p>
+                    <p className="error-message">Please enter a valid value containing digits.</p>
                   )}
                 </div>
               </div>
@@ -298,7 +298,7 @@ const FormComponent = () => {
                     data-example="e.g 10000"
                   />
                   {accountBalanceError && (
-                    <p className="error-message">Please enter a valid value.</p>
+                    <p className="error-message">Please enter a valid value containing only digits.</p>
                   )}
                 </div>
               </div>
@@ -316,7 +316,7 @@ const FormComponent = () => {
                     data-example="e.g 7500"
                   />
                   {monthlyExpensesError && (
-                    <p className="error-message">Please enter a valid value containing only digits from 0 to 9, excluding 0 as the first digit.</p>
+                    <p className="error-message">Please enter a valid value containing only digits.</p>
                   )}
                 </div>
               </div>

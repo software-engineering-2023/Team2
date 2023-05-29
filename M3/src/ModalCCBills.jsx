@@ -7,7 +7,7 @@ function ModalCCBills(props) {
     const [paid,setpaid]=useState(false);
    const handlePay = ()  => {
       const value = props.Amounttobepaid;
-      if(Amount > value || Amount === 0)
+      if(Amount > value || Amount == 0)
       setamounttobepaiderror(true);
       else{ //props.setAmounttobepaid((value)-Amount);
         props.changeAmount(Amount);
@@ -126,7 +126,7 @@ function ModalCCBills(props) {
               onChange={handleChange}
               required
             /> 
-            {amounttobepaiderror && <p className="error-message">Please enter a correct value less than or equal the required .</p>}
+            {amounttobepaiderror && <p className="error-message">Please enter a correct value less than or equal the required except 0.</p>}
             </div> ) }
       </Modal.Body>
       <Modal.Footer>

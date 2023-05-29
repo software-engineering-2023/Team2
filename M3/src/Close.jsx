@@ -7,7 +7,7 @@ import SecondNav from "./SecondNav"
 const Close = () => {
   const [formNumber, setFormNumber] = useState(0);
   const [shownName, setShownName] = useState('');
-  const stepList = ['Personal Information', 'Employment/Income', 'Financial Information'];
+  const stepList = ['Personal Information', 'Reason'];
   const [emailError, setEmailError] = useState(false); // Track email format error
   const [accountNumber, setAccountNumber] = useState('');
   const [accountNumberError, setAccountNumberError] = useState(false);
@@ -147,7 +147,7 @@ const Close = () => {
         <div className="form">
           <div className="left-side">
             <div className="left-heading">
-              <h2>Credit Card</h2>
+              <h2>Close Account</h2>
             </div>
             <div className="steps-content">
               <h3>
@@ -202,7 +202,7 @@ const Close = () => {
                       onChange={handleEmailChange} // Add onChange event listener
                     />
                     {emailError && (
-                      <p className="error-message">Please enter a valid email address.</p>
+                      <p className="error-message">Please enter a valid email address. ex@ex.com.</p>
                     )}
                     </div>
                 
@@ -230,12 +230,12 @@ const Close = () => {
                   <input
                       type="text"
                       required
-                      placeholder="e.g. Savings Account"
+                      placeholder="e.g. No use"
                       value={purpose}
                       onChange={handlePurposeChange}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      data-example="e.g. Savings Account"
+                      data-example="e.g. No use"
                       
                     />
                     {jobTitleError && (

@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle, KeyboardArrowDown } from '@material-ui/icons';
+import { FaBell } from 'react-icons/fa';
+import Notifications from './Notifications'
 
 const Navbar = () => {
   const nav = useNavigate();
@@ -29,7 +31,7 @@ const Navbar = () => {
 
   const gotoReports = () => {
     nav('/reports');
-  }
+  };
 
   return (
     <nav className="navbar">
@@ -40,15 +42,20 @@ const Navbar = () => {
         <button onClick={gotoHome} className="navbar-button">
           Home
         </button>
-        <button onClick={gotoReports} className="navbar-button">Report Technical Issue</button>
+        <button onClick={gotoReports} className="navbar-button">
+          Report Technical Issue
+        </button>
       </div>
       <div className="navbar-right">
-        <IconButton style={{ color: '#ffffff' }}
+      <Notifications />
+        <IconButton
+          style={{ color: '#ffffff' }} // Adjusted margin here
           className="navbar-button"
           aria-controls="profile-menu"
           aria-haspopup="true"
           onClick={openMenu}
         >
+          
           <AccountCircle />
           <KeyboardArrowDown style={{ color: '#ffffff' }} />
         </IconButton>
@@ -59,7 +66,6 @@ const Navbar = () => {
           open={Boolean(anchorEl)}
           onClose={closeMenu}
         >
-          
           <MenuItem onClick={gotoProfile}>Account Settings</MenuItem>
           <MenuItem onClick={gotoLogin}>Logout</MenuItem>
         </Menu>

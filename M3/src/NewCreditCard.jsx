@@ -225,7 +225,7 @@ const  [Amounttobepaid,setAmounttobepaid]=React.useState(30);
                 <td>${Amounttobepaid}</td>
                 <td>06/15/2021</td>
                 {!paidfully && !paidpartially && <span className="badge bg-light text-dark">Unpaid</span>}
-                {paidpartially && !paidfully && <span className="badge bg-light text-dark">Partially Paid</span>}
+                {paidpartially && !paidfully&& <span className="badge bg-light text-dark">Partially Paid</span>}
                 {paidfully && <span className="badge bg-success">Paid</span>}
                 <td>06/14/2021</td>
                 <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShow(true)}>Pay</button></td>

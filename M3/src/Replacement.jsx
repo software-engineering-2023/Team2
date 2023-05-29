@@ -9,7 +9,7 @@ const FormComponent = () => {
   const [emailError, setEmailError] = useState(false);
   const [accountNumber, setAccountNumber] = useState('');
   const [accountNumberError, setAccountNumberError] = useState(false);
-  const stepList = ['Personal Information', 'Card Information', 'Reason for Replacement',];
+  const stepList = ['Personal Information', 'Card Information', 'Reason for Replacement'];
 
   const handleNextClick = () => {
     if (!validateForm()) {
@@ -97,7 +97,7 @@ const FormComponent = () => {
         <div className="form">
           <div className="left-side">
             <div className="left-heading">
-              <h2>Credit Card</h2>
+              <h2>Credit Card Replacement</h2>
             </div>
             <div className="steps-content">
               <h3>
@@ -151,7 +151,7 @@ const FormComponent = () => {
                       onChange={handleEmailChange} // Add onChange event listener
                     />
                     {emailError && (
-                      <p className="error-message">Please enter a valid email address.</p>
+                      <p className="error-message">Please enter a valid email address. ex@ex.com.</p>
                     )}
                     </div>
                 

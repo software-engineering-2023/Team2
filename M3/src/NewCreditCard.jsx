@@ -45,6 +45,11 @@ const nav =useNavigate();;
         nav('/applyforreplacement')
       }
 
+      
+      const gotoCCReports= () => {
+        nav('/ccreports')
+      }
+
       const [modalShow, setModalShow] = React.useState(false);
 const  [Amounttobepaid,setAmounttobepaid]=React.useState(30);
       const onPay = () => {
@@ -278,21 +283,11 @@ const  [Amounttobepaid,setAmounttobepaid]=React.useState(30);
                         <p className="h8">
                         Stay One Step Ahead and Report Card Theft, Loss or Damage Now!
                         </p>
-                        <p className="p-blue bg btn btn-primary h8">Report</p>
+                        <p className="p-blue bg btn btn-primary h8" onClick={gotoCCReports}>Report</p>
                     </div>
                 </div>
             </div>
-            <div className="box-left border mt-4">
-                <div className="d-flex flex-column">
-                    <h1 className="fw-bold mb-3">Get Back on Track!</h1>
-                    <div>
-                        <p className="h8">
-                        Ensure uninterrupted access to your funds!
-                        </p>
-                        <button className="p-blue bg btn btn-primary h8" onClick={gotoCreditRep}>Apply for Credit Card Replacement</button>
-                    </div>
-                </div>
-            </div>
+  
             <div className="box-left border mt-4">
                 <div className="d-flex flex-column">
                     <h1 className="fw-bold mb-3">Your Cards' Transactions</h1>

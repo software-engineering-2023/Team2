@@ -18,33 +18,108 @@ const NewDesign = () => {
     const [basicActive, setBasicActive] = useState('tab1');
     const [basicAccount, setBasicAccount] = useState('acc1');
     const [AccountNumber, setAccountNumber] = useState('');
+    const [accounterror, setaccounterror]=useState(false);
     const [receiverAccountNumber, setReceiverAccountNumber] = useState('');
+    const [recieveerror, setreceiveerror]=useState(false);
     const [recipientName, setRecipientName] = useState('');
     const [amount, setAmount] = useState('');
-    const [submitted, setSubmitted] = useState(false);
     const [amountRequestedError, setAmountRequestedError] = useState(false);
-    const [accounterror, setaccounterror]=useState(false);
-    const [recieveerror, setreceiveerror]=useState(false);
+    
+    const [AccountNumberdom, setAccountNumberdom] = useState('');
+    const [accounterrordom, setaccounterrordom]=useState(false);
+    const [receiverAccountNumberdom, setReceiverAccountNumberdom] = useState('');
+    const [recieveerrordom, setreceiveerrordom]=useState(false);
+    const [recipientNamedom, setRecipientNamedom] = useState('');
+    const [amountdom, setAmountdom] = useState('');
+    const [amountRequestedErrordom, setAmountRequestedErrordom] = useState(false);
+
+    const [AccountNumberint, setAccountNumberint] = useState('');
+    const [accounterrorint, setaccounterrorint]=useState(false);
+    const [receiverAccountNumberint, setReceiverAccountNumberint] = useState('');
+    const [recieveerrorint, setreceiveerrorint]=useState(false);
+    const[swift,setswift]=useState('');
+    const[swifterror,setswifterror]=useState(false);
+    const [amountint, setAmountint] = useState('');
+    const [amountRequestedErrorint, setAmountRequestedErrorint] = useState(false);
+
+    const [submitted, setSubmitted] = useState(false);
+    
+    
+    
 
     const nav = useNavigate();
 
     const gotoBT = () => {
       nav("/bankaccounttransactions");
     }
-
-    const handleAmountRequestedChange = (event) => {
-      const value = event.target.value;
-      const isValid = /^[0-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
-      setReceiverAccountNumber(value);
-      setAmount(!isValid);
-    };
-
     const handleAccountNumberChange = (event) => {
       const value = event.target.value;
       const isValid = /^[0-9]{8}$/.test(value); // Check if the value contains only digits from 1 to 9
       setAccountNumber(value);
       setaccounterror(!isValid);
     };
+    const handleReceiverAccountNumberChange = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]{8}$/.test(value); // Check if the value contains only digits from 1 to 9
+      setReceiverAccountNumber(value);
+      setreceiveerror(!isValid);
+    };
+    const handleAmountRequestedChange = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
+      setAmount(value);
+      setAmountRequestedError(!isValid);
+    };
+
+    const handleAccountNumberChangedom = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]{8}$/.test(value); // Check if the value contains only digits from 1 to 9
+      setAccountNumberdom(value);
+      setaccounterrordom(!isValid);
+    };
+    const handleReceiverAccountNumberChangedom = (event) => {
+      const value = event.target.value;
+      const isValid = /^[A-Za-z]{2}\d{18}$/.test(value);
+ // Check if the value contains only digits from 1 to 9
+      setReceiverAccountNumberdom(value);
+      setreceiveerrordom(!isValid);
+    };
+    const handleAmountRequestedChangedom = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
+      setAmountdom(value);
+      setAmountRequestedErrordom(!isValid);
+    };
+    const handleAccountNumberChangeint = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]{8}$/.test(value); // Check if the value contains only digits from 1 to 9
+      setAccountNumberint(value);
+      setaccounterrorint(!isValid);
+    };
+
+const handleReceiverAccountNumberChangeint = (event) => {
+      const value = event.target.value;
+      const isValid = /^[A-Za-z]{2}\d{18}$/.test(value);
+ // Check if the value contains only digits from 1 to 9
+      setReceiverAccountNumberint(value);
+      setreceiveerrorint(!isValid);
+    };
+    const handleSWIFT = (event) => {
+      const value = event.target.value;
+      const isValid = /^[A-Za-z]{6}[A-Za-z0-9]{2}$/.test(value);
+ // Check if the value contains only digits from 1 to 9
+      setswift(value);
+      setswifterror(!isValid);
+    }
+
+    const handleAmountRequestedChangeint = (event) => {
+      const value = event.target.value;
+      const isValid = /^[0-9]+$/.test(value); // Check if the value contains only digits from 1 to 9
+      setAmountint(value);
+      setAmountRequestedErrorint(!isValid);
+    };
+
+    
 
     const handleFocus = (event) => {
       event.target.removeAttribute('placeholder');
@@ -247,7 +322,7 @@ const NewDesign = () => {
           <form onSubmit={handleSubmit}>
           <input
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
-              type="text"y
+              type="text"
               placeholder="Your Account Number"
               value={AccountNumber}
               onChange={handleAccountNumberChange}
@@ -264,13 +339,13 @@ const NewDesign = () => {
               type="text"
               placeholder="Recipient Account Number"
               value={receiverAccountNumber}
-              onChange={(e) => setReceiverAccountNumber(e.target.value)}
+              onChange={handleReceiverAccountNumberChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
               data-example='Recipient Account Number'
               required
             />
-            
+            {recieveerror && <p className="error-message">Please enter an 8-digit valid Account Number</p>}
             <input
               className={`form-control mb-3 ${submitted && !recipientName ? 'border-red' : ''}`}
               type="text"
@@ -282,17 +357,19 @@ const NewDesign = () => {
               data-example='Recepient Name'
               required
             />
+            {}
             <input
               className={`form-control mb-2 ${submitted && !amount ? 'border-red' : ''}`}
               type="text"
               placeholder="Amount"
               value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={handleAmountRequestedChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
               data-example='Amount'
               required
             />
+            {amountRequestedError && <p className="error-message">Please enter a valid number.</p>}
             <button
               className="btn btn-primary btn-block"
               onClick={() => setSubmitted(true)}
@@ -309,26 +386,40 @@ const NewDesign = () => {
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
               type="text"
               placeholder="Your Account Number"
-              value={AccountNumber}
-              onChange={(e) => setReceiverAccountNumber(e.target.value)}
+              value={AccountNumberdom}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handleAccountNumberChangedom}
+              data-example='Your Account Number'
               required
             />
+           {accounterrordom && (
+                      <p className="error-message">Please enter an 8-digit valid Account Number</p>
+            )}
             <input
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
               type="text"
-              placeholder="IBAN"
-              value={receiverAccountNumber}
-              onChange={(e) => setReceiverAccountNumber(e.target.value)}
+              placeholder="IBAN e.g UK123456789012345678"
+              value={receiverAccountNumberdom}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handleReceiverAccountNumberChangedom}
+              data-example='IBAN e.g UK123456789012345678'
               required
             />
+            {recieveerrordom && <p className="error-message">Please enter 2 letters followed by 18-digits.</p>}
             <input
               className={`form-control mb-2 ${submitted && !amount ? 'border-red' : ''}`}
               type="text"
               placeholder="Amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              value={amountdom}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handleAmountRequestedChangedom}
+              data-example='Amount'
               required
             />
+            {amountRequestedErrordom && <p className="error-message">Please enter a valid number.</p>}
             <button
               className="btn btn-primary btn-block"
               onClick={() => setSubmitted(true)}
@@ -343,34 +434,52 @@ const NewDesign = () => {
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
               type="text"
               placeholder="Your Account Number"
-              value={receiverAccountNumber}
-              onChange={(e) => setReceiverAccountNumber(e.target.value)}
+              value={AccountNumberint}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handleAccountNumberChangeint}
+              data-example='Your Account Number'
               required
             />
+            {accounterrorint && (
+                      <p className="error-message">Please enter an 8-digit valid Account Number</p>
+            )}
             <input
               className={`form-control mb-3 ${submitted && !receiverAccountNumber ? 'border-red' : ''}`}
               type="text"
-              placeholder="IBAN"
-              value={receiverAccountNumber}
-              onChange={(e) => setReceiverAccountNumber(e.target.value)}
+              placeholder="IBAN e.g UK123456789012345678"
+              value={receiverAccountNumberint}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handleReceiverAccountNumberChangeint}
+              data-example='IBAN e.g UK123456789012345678'
               required
             />
+            {recieveerrorint && <p className="error-message">Please enter 2 letters followed by 18-digits.</p>}
             <input
               className={`form-control mb-2 ${submitted && !amount ? 'border-red' : ''}`}
               type="text"
-              placeholder="SWIFT"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              placeholder="SWIFT e.g ABCDEF12"
+              value={swift}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handleSWIFT}
+              data-example='SWIFT e.g ABCDEF12'
               required
             />
+            {swifterror && <p className="error-message">Please enter six-letter bank code followed by a two-letter/two-digit country code.</p>}
             <input
               className={`form-control mb-2 ${submitted && !amount ? 'border-red' : ''}`}
               type="text"
               placeholder="Amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              value={amountint}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handleAmountRequestedChangeint}
+              data-example='Amount'
               required
             />
+            {amountRequestedErrorint && <p className="error-message">Please enter a valid number.</p>}
             <button
               className="btn btn-primary btn-block"
               onClick={() => setSubmitted(true)}

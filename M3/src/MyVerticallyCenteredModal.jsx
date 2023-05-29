@@ -3,15 +3,15 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 function MyVerticallyCenteredModal(props) {
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
+  
 
   const handlePayment = () => {
-    setPaymentSuccess(true);
+    props.setPaymentSuccess(true);
     props.onPay();
   };
 
   const handleClose = () => {
-    setPaymentSuccess(false);
+   // setPaymentSuccess(false);
     props.onHide();
   };
 
@@ -21,7 +21,7 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Title id="contained-modal-title-vcenter">Select Payment Method</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {paymentSuccess ? (
+        {props.paymentSuccess ? (
           <div>
             <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
               <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
@@ -43,9 +43,9 @@ function MyVerticallyCenteredModal(props) {
                   </div>
                 </div>
                 <div className="ms-4 small">
-                  <button className="p-blue bg btn btn-primary h8" onClick={handlePayment}>
+                  {<button className="p-blue bg btn btn-primary h8" onClick={handlePayment}>
                     Pay
-                  </button>
+                  </button>}
                 </div>
               </div>
               <hr />
@@ -58,7 +58,9 @@ function MyVerticallyCenteredModal(props) {
                   </div>
                 </div>
                 <div className="ms-4 small">
-                  <button className="p-blue bg btn btn-primary h8">Pay</button>
+                {<button className="p-blue bg btn btn-primary h8" onClick={handlePayment}>
+                    Pay
+                  </button>}
                 </div>
               </div>
               <hr />
@@ -70,7 +72,9 @@ function MyVerticallyCenteredModal(props) {
                   </div>
                 </div>
                 <div className="ms-4 small">
-                  <button className="p-blue bg btn btn-primary h8">Pay</button>
+                {<button className="p-blue bg btn btn-primary h8" onClick={handlePayment}>
+                    Pay
+                  </button>}
                 </div>
               </div>
             </div>
@@ -78,7 +82,7 @@ function MyVerticallyCenteredModal(props) {
         )}
       </Modal.Body>
       <Modal.Footer>
-        {!paymentSuccess && <Button onClick={handleClose}>Close</Button>}
+        {<Button onClick={handleClose}>Close</Button>}
       </Modal.Footer>
     </Modal>
   );

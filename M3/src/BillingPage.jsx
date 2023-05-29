@@ -9,9 +9,12 @@ import AddPayment from "./AddPayment";
 const BillingPage = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalshowadd,setModalShowAdd] = React.useState(false);
+  const [paymentSuccess, setPaymentSuccess] = React.useState(false);
+  const [carddone,setcarddone]=React.useState(false);
+  const [accdone,setaccdone]=React.useState(false);
   const onPay= () => {
-setModalShow(false);
-alert("Payment Successful");
+//setModalShow(false);
+//alert("Payment Successful");
   }
     return (
       
@@ -26,7 +29,8 @@ alert("Payment Successful");
         <div className="card h-100 border-start-lg border-start-primary">
           <div className="card-body">
             <div className="small text-muted">Remaining monthly bills' value</div>
-            <div className="h1">$20.00</div>
+            {!paymentSuccess && <div className="h1">$29.99</div>}
+            {paymentSuccess && <div className="h1">$0.00</div>}
           </div>
         </div>
       </div>
@@ -35,7 +39,8 @@ alert("Payment Successful");
         <div className="card h-100 border-start-lg border-start-secondary">
           <div className="card-body">
             <div className="small text-muted">Next payment due</div>
-            <div className="h1">June 15</div>
+            {!paymentSuccess && <div className="h1">June 15</div>}
+            {paymentSuccess && <div className="h1">None</div>}
           </div>
         </div>
       </div>
@@ -44,7 +49,8 @@ alert("Payment Successful");
         <div className="card h-100 border-start-lg border-start-success">
           <div className="card-body">
             <div className="small text-muted">Number of Bills Remaining to be paid</div>
-            <div className="h1 d-flex align-items-center">4</div>
+            {!paymentSuccess && <div className="h1 d-flex align-items-center">1</div>}
+            {paymentSuccess && <div className="h1 d-flex align-items-center">0</div>}
           </div>
         </div>
       </div>
@@ -54,7 +60,8 @@ alert("Payment Successful");
       <div className="card-header">
         Payment Methods
         <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShowAdd(true)}>Add Payment Method</button></td>
-                <AddPayment show={modalshowadd} onHide={() => setModalShowAdd(false)} onPay={onPay}/>
+                <AddPayment show={modalshowadd} onHide={() => setModalShowAdd(false)} onPay={onPay} carddone={carddone}
+                setcarddone={setcarddone} accdone={accdone} setaccdone={setaccdone}/>
       </div>
       <div className="card-body px-0">
         {/* Payment method 1*/}
@@ -90,9 +97,29 @@ alert("Payment Successful");
               
             </div>
           </div>
-          
         </div>
       </div>
+      <hr />
+      {carddone && <div className="d-flex align-items-center justify-content-between px-4">
+          <div className="d-flex align-items-center">
+            <i className="fab fa-cc-mastercard fa-2x cc-color-mastercard" />
+            <div className="ms-4">
+              <div className="small">Mastercard ending in 5678</div>
+              <div className="text-xs text-muted">Expires 05/2022</div>
+            </div>
+          </div>
+          </div>}
+      {accdone && <div className="d-flex align-items-center justify-content-between px-4">
+          <div className="d-flex align-items-center">
+          <i className="fas fa-dollar-sign fa-3x"></i>
+            <div className="ms-4 px-1">
+              <div className="small">Account: 21434892</div>
+              
+            </div>
+          </div>
+        </div>
+        }
+     
     </div>
     {/* Billing history card*/}
     <div className="card mb-4">
@@ -133,11 +160,14 @@ alert("Payment Successful");
                 <td>06/15/2021</td>
                 <td>$29.99</td>
                 <td>
-                  <span className="badge bg-light text-dark">Unpaid</span>
+                {!paymentSuccess&&<span className="badge bg-light text-dark">Unpaid</span>}
+                {paymentSuccess&&<span className="badge bg-success">Paid</span>}
                 </td>
                 <td><button className="p-blue bg btn btn-primary h8" onclick="handleReminderClick()">Set Reminder</button></td>
-                <td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShow(true)}>Pay</button></td>
-                <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} onPay={onPay}/>
+                {!paymentSuccess&&<td><button className="p-blue bg btn btn-primary h8" onClick={() => setModalShow(true)}>Pay</button></td>}
+
+                <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} onPay={onPay} paymentSuccess={paymentSuccess}
+                setPaymentSuccess={setPaymentSuccess}/>
               </tr>
               <tr>
                 <td>#38594</td>
@@ -155,7 +185,7 @@ alert("Payment Successful");
                 <td>04/15/2021</td>
                 <td>$29.99</td>
                 <td>
-                  <span className="badge bg-success">Paid</span>
+                  {<span className="badge bg-success">Paid</span>}
                 </td>
               </tr>
               <tr>

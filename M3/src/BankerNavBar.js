@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle, KeyboardArrowDown } from '@material-ui/icons';
 import Logo from './Logo.png'
+import Notifications from './Notifications';
+import BankerNote from './BankerNote'
 
 const BankerNavBar = () => {
   const nav = useNavigate();
@@ -55,6 +57,7 @@ const BankerNavBar = () => {
         <button className="navbar-button" onClick={gotoReport}>Report Technical Issue</button>
       </div>
       <div className="navbar-right">
+        <BankerNote></BankerNote>
       <button className="navbar-button" onClick={gotoLogin}>Logout</button>
       </div>
     </nav>

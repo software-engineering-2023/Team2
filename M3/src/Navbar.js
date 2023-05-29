@@ -47,26 +47,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-right">
         <Notifications></Notifications>
-        <IconButton style={{ color: '#ffffff' }}
-          className="navbar-button"
-          aria-controls="profile-menu"
-          aria-haspopup="true"
-          onClick={openMenu}
-        >
-          <AccountCircle />
-          <KeyboardArrowDown style={{ color: '#ffffff' }} />
-        </IconButton>
-        <Menu
-          id="profile-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={closeMenu}
-        >
-          
-          <MenuItem onClick={gotoProfile}>Account Settings</MenuItem>
+
           <MenuItem onClick={gotoLogin}>Logout</MenuItem>
-        </Menu>
       </div>
     </nav>
   );

@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
+import BankerNavbar from './BankerNavBar'
 
 const SearchPage = () => {
-  const [searchText, setSearchText] = useState('');
+    const [searchValue, setSearchValue] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
   const nav = useNavigate();
 
   const handleSearch = () => {
-    // Perform search logic here
-
-    // Redirect to a new page with the search query
-    nav('');
+    if (searchValue === '9471') {
+      nav('/bankerclientinfo')
+    } else {
+      setErrorMessage('Invalid client id. Please try again with a valid client ID');
+    }
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-      <Form>
-        <Form.Group controlId="searchBar">
-          <Form.Control
-            type="text"
-            placeholder="Enter your search query"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-        </Form.Group>
-        <Button variant="primary" onClick={handleSearch}>
-          Search
-        </Button>
-      </Form>
-    </Container>
+    <div className="dakhm">
+      <BankerNavbar></BankerNavbar>
+      <input type="text" 
+      placeholder='Search By Client iD' className='fuck'
+      onChange={(e) => setSearchValue(e.target.value)}
+      />
+      <p> </p>
+      <button onClick={handleSearch} className="p-blue bg btn btn-primary h8 khosh">
+        Search
+      </button>
+      {errorMessage && (
+                      <p className="error-message2">Invalid Client ID. Please try again with a valid client ID</p>
+                    )}
+      </div>
   );
 };
 

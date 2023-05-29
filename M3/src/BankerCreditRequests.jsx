@@ -16,7 +16,6 @@ const BankerCreditRequests = () => {
         accountnumber: "ABC123",
         date: "2023-05-20",
         status: "Pending",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("1")} className="p-blue bg btn btn-primary h8">
@@ -37,7 +36,6 @@ const BankerCreditRequests = () => {
         accountnumber: "DEF456",
         date: "2023-05-21",
         status: "Pending",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("2")} className="p-blue bg btn btn-primary h8">
@@ -58,7 +56,6 @@ const BankerCreditRequests = () => {
         accountnumber: "GHI789",
         date: "2023-05-22",
         status: "Pending",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("3")} className="p-blue bg btn btn-primary h8">
@@ -79,7 +76,6 @@ const BankerCreditRequests = () => {
         accountnumber: "JKL012",
         date: "2023-05-23",
         status: "Pending",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
@@ -100,7 +96,6 @@ const BankerCreditRequests = () => {
         accountnumber: "MNO345",
         date: "2023-05-24",
         status: "Pending",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("5")} className="p-blue bg btn btn-primary h8">
@@ -164,12 +159,6 @@ const BankerCreditRequests = () => {
     {
       Header: "Status",
       accessor: "status",
-    },
-    {
-      Header: "Uploaded Documents",
-      accessor: "doc",
-      disableFilters: true,
-      Cell: () => <button className="p-blue bg btn btn-primary h8">View</button>,
     },
     {
       Header: "Actions",

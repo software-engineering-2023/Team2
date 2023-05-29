@@ -151,6 +151,14 @@ const handleReceiverAccountNumberChangeint = (event) => {
       nav("/close");
     }
 
+    const gotoPbt = () => {
+      nav("/clientbank");
+    }
+
+    const gotoProto = () => {
+      nav("/clientcredit");
+    }
+
     const handleBasicClick = (value) => {
       if (value === basicActive) {
         return;
@@ -298,7 +306,7 @@ const handleReceiverAccountNumberChangeint = (event) => {
                   <h1 className="fw-bold">Client's Bank Account Transactions</h1>
                 </div>
                 <div>
-                    <button onClick={gotoBT} className="p-blue bg btn btn-primary h8">View Transactions</button>
+                    <button onClick={gotoPbt} className="p-blue bg btn btn-primary h8">View Transactions</button>
                 </div>
               </div>
             </div>
@@ -400,7 +408,7 @@ const handleReceiverAccountNumberChangeint = (event) => {
                 <div className="d-flex flex-column">
                     <h1 className="fw-bold mb-3">Client's Credit Card Transactions</h1>
                     <div>
-                        <p className="p-blue bg btn btn-primary h8">View Transactions</p>
+                        <button onClick={gotoProto}className="p-blue bg btn btn-primary h8">View Transactions</button>
                     </div>
                 </div>
             </div>

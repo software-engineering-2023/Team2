@@ -17,7 +17,6 @@ const BankerCreditRequests = () => {
         date: "2023-05-20",
         status: "Pending",
         reason:"Better Offers Elsewhere",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("1")} className="p-blue bg btn btn-primary h8">
@@ -39,7 +38,6 @@ const BankerCreditRequests = () => {
         date: "2023-05-22",
         status: "Pending",
         reason:"Dissatisfaction in Services",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("2")} className="p-blue bg btn btn-primary h8">
@@ -61,7 +59,6 @@ const BankerCreditRequests = () => {
         date: "2023-05-23",    
         status: "Pending",
         reason:"Change in Financial Needs",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("3")} className="p-blue bg btn btn-primary h8">
@@ -128,12 +125,6 @@ const BankerCreditRequests = () => {
     {
       Header: "Reason for Closing",
       accessor: "reason",
-    },
-    {
-      Header: "Uploaded Documents",
-      accessor: "doc",
-      disableFilters: true,
-      Cell: () => <button className="p-blue bg btn btn-primary h8">View</button>,
     },
     {
       Header: "Actions",

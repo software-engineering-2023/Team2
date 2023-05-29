@@ -16,17 +16,16 @@ const BankerOpenRequests = () => {
         date: "2023-05-20",
         dob: "1990-01-01",
         address: "123 Main St",
-        phone: "123-456-7890",
         place: "Company XYZ",
         salary: 5000,
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
+        status: "Pending",
         actions: (
           <>
-            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleAccept("1")} className="p-blue bg btn btn-primary h8">
               Accept
             </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleReject("1")} className="p-blue bg btn btn-primary h8">
               Reject
             </button>
           </>
@@ -40,17 +39,16 @@ const BankerOpenRequests = () => {
         date: "2023-05-21",
         dob: "1985-02-10",
         address: "456 Elm St",
-        phone: "987-654-3210",
         place: "Company ABC",
+        status: "Pending",
         salary: 4000,
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleAccept("2")} className="p-blue bg btn btn-primary h8">
               Accept
             </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleReject("2")} className="p-blue bg btn btn-primary h8">
               Reject
             </button>
           </>
@@ -64,17 +62,16 @@ const BankerOpenRequests = () => {
         date: "2023-05-22",
         dob: "1982-09-15",
         address: "789 Oak St",
-        phone: "567-890-1234",
         place: "Company PQR",
         salary: 6000,
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
+        status: "Pending",
         actions: (
           <>
-            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleAccept("3")} className="p-blue bg btn btn-primary h8">
               Accept
             </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleReject("3")} className="p-blue bg btn btn-primary h8">
               Reject
             </button>
           </>
@@ -88,10 +85,9 @@ const BankerOpenRequests = () => {
         date: "2023-05-23",
         dob: "1995-07-20",
         address: "987 Pine St",
-        phone: "890-123-4567",
         place: "Company LMN",
         salary: 5500,
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
+        status: "Pending",
         actions: (
           <>
             <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
@@ -156,10 +152,6 @@ const BankerOpenRequests = () => {
       accessor: "address",
     },
     {
-        Header: "PhoneNo",
-        accessor: "phone",
-    },
-    {
         Header: "Place of Occupation",
         accessor: "place",
     },
@@ -168,11 +160,9 @@ const BankerOpenRequests = () => {
         accessor: "salary",
     },
     {
-      Header: "Uploaded Documents",
-      accessor: "doc",
-      disableFilters: true,
-      Cell: () => <button className="p-blue bg btn btn-primary h8">View</button>,
-    },
+      Header: "Status",
+      accessor: "status",
+  },
     {
       Header: "Actions",
       accessor: "actions",

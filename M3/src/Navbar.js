@@ -48,7 +48,7 @@ const Navbar = () => {
       <div className="navbar-right">
         <Notifications></Notifications>
 
-          <MenuItem onClick={gotoLogin}>Logout</MenuItem>
+          <button className='navbar-button' onClick={gotoLogin}>Logout</button>
       </div>
     </nav>
   );

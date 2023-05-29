@@ -15,14 +15,13 @@ const BankerReplacementRequests = () => {
         date: "2023-05-20",
         cardnumber: "**** **** **** 1234",
         purpose: "Loss",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleAccept("1")} className="p-blue bg btn btn-primary h8">
               Accept
             </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleReject("1")} className="p-blue bg btn btn-primary h8">
               Reject
             </button>
           </>
@@ -36,14 +35,13 @@ const BankerReplacementRequests = () => {
         date: "2023-05-21",
         cardnumber: "**** **** **** 5678",
         purpose: "Theft",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleAccept("2")} className="p-blue bg btn btn-primary h8">
               Accept
             </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleReject("2")} className="p-blue bg btn btn-primary h8">
               Reject
             </button>
           </>
@@ -57,14 +55,13 @@ const BankerReplacementRequests = () => {
         date: "2023-05-22",
         cardnumber: "**** **** **** 9012",
         purpose: "Damaged",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleAccept("3")} className="p-blue bg btn btn-primary h8">
               Accept
             </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
+            <button onClick={() => handleReject("3")} className="p-blue bg btn btn-primary h8">
               Reject
             </button>
           </>
@@ -78,7 +75,6 @@ const BankerReplacementRequests = () => {
         date: "2023-05-23",
         cardnumber: "**** **** **** 3456",
         purpose: "Theft",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">

@@ -18,7 +18,6 @@ import BankerLoanRequests from './BankerLoanRequests';
 import BankerOpenRequests from './BankerOpenRequests';
 import BankerReplacementRequests from './BankerReplacementRequests';
 import BankerRequests from './BankerRequests';
-import BankerLogin from './BankerLogin';
 import ReportIssues from './ReportIssues';
 import NewDesign from './NewDesign';
 import NewLoan from './newLoans';
@@ -35,6 +34,11 @@ import Issues from './Issues'
 import BankerClose from './BankerCloseRequests'
 import BankerClientInfo from './BankerClientInfo'
 import Search from './SearchForClient'
+import BankerLogin from './BankerLogin'
+import BankerCar from './BankerCar'
+import ViewTheft from './ViewCardReports'
+import ProtoCredit from './ProtoCredit'
+import ProtoBank from './ProtoBank'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -55,7 +59,7 @@ ReactDOM.render(
         <Route path="/mybills" element={<BillingPage />} />
         <Route path="/myaccounts" element={<NewDesign/>} />
         <Route path="/myloans" element={<NewLoan/>} />
-        <Route path="/banker" element={<LoginAdmin />}/>
+        <Route path="/banker" element={<BankerLogin/>}/>
         <Route path="/bankerHome" element={<BankerHome></BankerHome>} />
         <Route path="/bankerrequests" element={<BankerRequests></BankerRequests>} />
         <Route path="/bankerLoanrequests" element={<BankerLoanRequests></BankerLoanRequests>} />
@@ -73,6 +77,10 @@ ReactDOM.render(
         <Route path="/bankerclose" element={<BankerClose/>}/>
         <Route path="/bankerclientinfo" element={<BankerClientInfo/>}/>
         <Route path="/search" element={<Search/>}/>
+        <Route path="/bankercar" element={<BankerCar/>}/>
+        <Route path="/clientcredit" element={<ProtoCredit/>}/>
+        <Route path="/clientbank" element={<ProtoBank/>}/>
+
 
 
 

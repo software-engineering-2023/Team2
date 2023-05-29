@@ -33,6 +33,17 @@
   width: 100%;
 }
 
+.fuck{
+  width:20vw !important;
+  margin-top: 40vh;
+  border-radius: 3px;
+  margin-left: 40vw !important;
+}
+
+.khosh{
+  margin-left: 48vw;
+}
+
 .navbar-second{
   background-color: #1858a8;
   width: 100%;
@@ -43,6 +54,17 @@
   display: flex;
   justify-content: center;
 }
+
+.navbar-button-back {
+  margin-right: 90px; /* Adjust the value as per your preference */
+  margin-left: 0;
+}
+
+.navbar-logo{
+  height:60px;
+}
+
+
 
 .email-textfield{
 
@@ -55,9 +77,16 @@
 }
 
 
+.pok{
+  margin-top: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .navbar-left {
   flex: 1;
+  display:flex;
 
 }
 
@@ -93,23 +122,6 @@
 }
 
 .navbar-button:hover {
-  background-color: #ffa807;
-}
-.navbar-button-left {
-  font-size: 19px;
-  padding: 8px 16px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-  color: white;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  
-  justify-content: flex-start;
-}
-
-.navbar-button-left:hover {
   background-color: #ffa807;
 }
 

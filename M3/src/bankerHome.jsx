@@ -15,8 +15,9 @@ const BankerHome = () => {
            {/* <Second></Second> */}
             <div className="boxwrap">
                 <Box text="" head="Review Applications" dest="/bankerrequests"/>
-                <Box text="" head="View Clients' Transacions" dest="/clientinfo"/>
+                <Box text="" head="View Clients' Transacions" dest="/search"/>
                 <Box text="" head="Report Technical Issue" dest="/bankerissues"/>
+                <Box text="" head="View Card Reports" dest="/viewreports"/>
             </div>
 
         </div>

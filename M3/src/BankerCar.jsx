@@ -16,8 +16,10 @@ const BankerLoanRequests = () => {
         date: "2023-05-20",
         amount: 1000,
         interest: 5,
-        purpose: "Home Loan",
+        model:"Mercedes CLA",
+        year: "2021",
         status: "Pending",
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
             <button onClick={() => handleAccept("1")} className="p-blue bg btn btn-primary h8">
@@ -40,7 +42,8 @@ const BankerLoanRequests = () => {
         date: "2023-05-21",
         amount: 2000,
         interest: 7,
-        purpose: "Business Loan",
+        model:"BMW 320",
+        year: "2020",
         status: "Pending",
         actions: (
           <>
@@ -63,7 +66,8 @@ const BankerLoanRequests = () => {
         date: "2023-05-22",
         amount: 1500,
         interest: 6,
-        purpose: "Education Loan",
+        model:"Mercedes C120",
+        year: "2021",
         status: "Pending",
         actions: (
           <>
@@ -72,30 +76,6 @@ const BankerLoanRequests = () => {
             </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
             <button onClick={() => handleReject("3")} className="p-blue bg btn btn-primary h8">
-              Reject
-            </button>
-          </>
-        ),
-      },
-      {
-        requestid: "4",
-        firstname: "Michael",
-        secondname: "Brown",
-        nationalID: "4321098765",
-        accountnumber: "JKL012",
-        date: "2023-05-23",
-        amount: 2500,
-        interest: 8,
-        purpose: "Business Loan",
-        status: "Pending",
-        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
-        actions: (
-          <>
-            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
-              Accept
-            </button>
-            <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
             </button>
           </>
@@ -157,9 +137,13 @@ const BankerLoanRequests = () => {
       accessor: "interest",
     },
     {
-        Header: "Purpose",
-        accessor: "purpose",
+        Header: "Car Model",
+        accessor: "model",
     },
+    {
+        Header: "Car Year",
+        accessor: "year",
+      },
     {
       Header: "Status",
       accessor: "status",

@@ -5,6 +5,7 @@ import './index.css' ;
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle, KeyboardArrowDown } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
+import Logo from './Logo.png'
 
 
 const AdminNavbar = () => {
@@ -44,7 +45,8 @@ const AdminNavbar = () => {
     return (
         <nav className="navbar">
       <div className="navbar-left">
-        <h1 className="navbar-title">BANK.</h1>
+      <img src={Logo} alt="Logo" className="navbar-logo" />
+      <h4 className="pok">RISE BANK</h4>
       </div>
       <div className="navbar-middle">
         <button className="navbar-button" onClick={gotoHome}>Home</button>

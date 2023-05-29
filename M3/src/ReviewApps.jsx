@@ -10,12 +10,13 @@ const ReviewApps = () => {
         <Second></Second>
         <div className="boxwrap">
             <Box text="" head="Credit Card Requests" dest="/bankerreviewcreditrequests"/>
-            <Box text="" head="Loan Requests" dest="/bankerreviewloanrequests"/>
+            <Box text="" head="Personal Loan Requests" dest="/bankerreviewloanrequests"/>
             <Box text="" head="Card Replacement Requests" dest="/bankerreviewreplacementrequests"/>
         </div>
         <div className="boxwraplevel1">
             <Box text="" head="Account Opening Requests" dest="/bankerreviewopenrequests"/>
-            <Box text="" head="Account Closing Requests" dest="/myloans"/>
+            <Box text="" head="Account Closing Requests" dest="/bankerclose"/>
+            <Box text="" head="Car Loan Requests" dest="/bankercar"/>
         </div>
     </div>
     );

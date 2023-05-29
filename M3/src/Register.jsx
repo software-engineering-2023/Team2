@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
-  const navigate = useNavigate();
+  const nav = useNavigate();
   const [formValues, setFormValues] = useState({
     form3Example1cg: '',
     form3Example3cg: '',
@@ -83,17 +83,14 @@ function Register() {
       valid = false;
     }
 
-    if (!form2Example3cg) {
-      errors.form2Example3cg = 'Please accept the terms.';
-      valid = false;
-    }
+    
 
     if (valid) {
       // All fields are filled and terms are checked
       // alert('Registration successful!'); // Replace with your desired logic
 
       // Redirect the user to the login page or any other page
-      navigate('/'); // Replace '/login' with your desired route
+      nav('/'); // Replace '/login' with your desired route
     } else {
       setFormErrors(errors);
       // alert('Please fill in all required fields and accept the terms.');
@@ -207,12 +204,12 @@ function Register() {
                           )}
                         </div>
 
-                        
+                    
 
                         <div className="d-flex justify-content-center">
                           <button
                             type="button"
-                            className="p-blue bg btn btn-primary h8"
+                            className="btn btn-dark btn-lg btn-block"
                             onClick={handleRegister}
                           >
                             Register

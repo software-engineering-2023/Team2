@@ -70,25 +70,26 @@ const defaultTheme = createTheme();
 function LoginAdmin() {
     const nav =useNavigate();
     const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+    const [loginError, setLoginError] = React.useState(false);
+    const [password, setPassword] = React.useState('');
 
-    const checkCredentials = () => {
-        const data = {
-          username: "Salsabil", // replace with your username
-          password: "Doona213" // replace with your password
-        };
-    
-        const emailInput = document.getElementById("form2Example17");
-        const passwordInput = document.getElementById("form2Example27");
-    
-        if (emailInput.value === data.username && passwordInput.value === data.password) {
-            nav("/homeadmin")
-          // Add your logic for successful login here
-        } else {
-          alert("Invalid username or password");
-          // Add your logic for invalid credentials here
-        }
+    const checkCredentials = (e) => {
+      e.preventDefault(); // Prevent default form submission
+  
+      const data = {
+        username: 'Salsabil', // replace with your username
+        password: 'Doona213', // replace with your password
       };
+  
+      if (email === data.username && password === data.password) {
+        nav('/adminhome');
+        // Add your logic for successful login here
+      } else {
+        setLoginError(true);
+      }
+    };
+
+
 
 
 
@@ -98,16 +99,16 @@ function LoginAdmin() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 35,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'blue' }}>
+          <Avatar sx={{ m: 1, bgcolor: '#1858A8E' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4">
             Login
           </Typography>
           <Box component="form"  noValidate sx={{ mt: 1 }}>
@@ -115,13 +116,16 @@ function LoginAdmin() {
           margin="normal"
           required
           fullWidth
-          id="form2Example17"
+          id="fasah"
           label="Email Address"
           name="email"
           autoComplete="email"
           autoFocus
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          inputProps={{
+            style: { fontSize: '16px', height: '56px' },
+          }}
         />
         <TextField
           margin="normal"
@@ -135,10 +139,11 @@ function LoginAdmin() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            {loginError && (
+              <Typography color="error" variant="caption">
+                Invalid username or password
+              </Typography>
+            )}
             <Button
               type="submit"
               fullWidth
@@ -155,14 +160,10 @@ function LoginAdmin() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );

@@ -20,19 +20,19 @@ const AdminNavbar = () => {
   };
 
   const gotoLogin = () => {
-    nav('/');
+    nav('/admin');
   };
 
   const gotoHome = () => {
-    nav('/HomeAdmin');
+    nav('/adminhome');
   };
 
   const gotoAnnounce = () => {
-    nav('/Announce');
+    nav('/announce');
   };
 
   const gotoIssues = () => {
-    nav('/Issues');
+    nav('/issues');
   } 
 
 

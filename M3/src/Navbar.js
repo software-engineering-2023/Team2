@@ -40,8 +40,7 @@ const Navbar = () => {
         <button onClick={gotoHome} className="navbar-button">
           Home
         </button>
-        <button className="navbar-button">About</button>
-        <button onClick={gotoReports} className="navbar-button">Reports</button>
+        <button onClick={gotoReports} className="navbar-button">Report Technical Issue</button>
       </div>
       <div className="navbar-right">
         <IconButton style={{ color: '#ffffff' }}

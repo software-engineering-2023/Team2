@@ -2,15 +2,19 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import grumpyImage from './coins.jpg';
+import { useState } from 'react';
 
 
 function LoginForm() {
 
     const nav =useNavigate();
+    const [loginError,setLoginError]= useState(false);
 
     
 
-  const checkCredentials = () => {
+  const checkCredentials = (e) => {
+    e.preventDefault();
+
     const data = {
       username: "amir.ashraf16502@gmail.com", // replace with your username
       password: "Doona213" // replace with your password
@@ -23,8 +27,7 @@ function LoginForm() {
         nav("/home")
       // Add your logic for successful login here
     } else {
-      alert("Invalid username or password");
-      // Add your logic for invalid credentials here
+      setLoginError(true);
     }
   };
 
@@ -68,6 +71,10 @@ function LoginForm() {
                         <button className="btn btn-dark btn-lg btn-block" type="button" onClick={checkCredentials}>
                           Login
                         </button>
+                        <p> </p>
+                        {loginError && (
+                      <p className="error-message">Invalid e-mail or password.</p>
+                        )}  
                       </div>
                       <a className="small text-muted" href="#!">
                         Forgot password?

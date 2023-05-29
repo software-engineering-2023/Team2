@@ -104,7 +104,7 @@ const Issues = () => {
     setRows((prevRows) => prevRows.filter((row) => row.id !== rowId));
   };
   return (
-    <div className="Home">
+    <div className="ann">
       <AdminNavbar></AdminNavbar>
       <TableContainer component={Paper} >
         <Table aria-label="collapsible table">

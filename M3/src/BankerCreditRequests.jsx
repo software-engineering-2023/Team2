@@ -16,16 +16,16 @@ const BankerCreditRequests = () => {
         accountnumber: "ABC123",
         date: "2023-05-20",
         status: "Pending",
-        doc: <MDBBtn rounded className="mx-2" color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("1")} rounded color="secondary">
+            <button onClick={() => handleAccept("1")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("1")} rounded color="secondary">
+            <button onClick={() => handleReject("1")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -37,16 +37,16 @@ const BankerCreditRequests = () => {
         accountnumber: "DEF456",
         date: "2023-05-21",
         status: "Pending",
-        doc: <MDBBtn rounded className="mx-2" color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("2")} rounded color="secondary">
+            <button onClick={() => handleAccept("2")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("2")} rounded color="secondary">
+            <button onClick={() => handleReject("2")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -58,16 +58,16 @@ const BankerCreditRequests = () => {
         accountnumber: "GHI789",
         date: "2023-05-22",
         status: "Pending",
-        doc: <MDBBtn rounded className="mx-2" color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("3")} rounded color="secondary">
+            <button onClick={() => handleAccept("3")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("3")} rounded color="secondary">
+            <button onClick={() => handleReject("3")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -79,16 +79,16 @@ const BankerCreditRequests = () => {
         accountnumber: "JKL012",
         date: "2023-05-23",
         status: "Pending",
-        doc: <MDBBtn rounded className="mx-2" color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("4")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("4")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -100,16 +100,16 @@ const BankerCreditRequests = () => {
         accountnumber: "MNO345",
         date: "2023-05-24",
         status: "Pending",
-        doc: <MDBBtn rounded className="mx-2" color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("5")} rounded color="secondary">
+            <button onClick={() => handleAccept("5")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("5")} rounded color="secondary">
+            <button onClick={() => handleReject("5")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -169,7 +169,7 @@ const BankerCreditRequests = () => {
       Header: "Uploaded Documents",
       accessor: "doc",
       disableFilters: true,
-      Cell: () => <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+      Cell: () => <button className="p-blue bg btn btn-primary h8">View</button>,
     },
     {
       Header: "Actions",

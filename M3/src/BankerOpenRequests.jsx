@@ -19,16 +19,16 @@ const BankerOpenRequests = () => {
         phone: "123-456-7890",
         place: "Company XYZ",
         salary: 5000,
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("1")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("1")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -43,16 +43,16 @@ const BankerOpenRequests = () => {
         phone: "987-654-3210",
         place: "Company ABC",
         salary: 4000,
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("2")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("2")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -67,16 +67,16 @@ const BankerOpenRequests = () => {
         phone: "567-890-1234",
         place: "Company PQR",
         salary: 6000,
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("3")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("3")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -91,16 +91,16 @@ const BankerOpenRequests = () => {
         phone: "890-123-4567",
         place: "Company LMN",
         salary: 5500,
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("4")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("4")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -171,7 +171,7 @@ const BankerOpenRequests = () => {
       Header: "Uploaded Documents",
       accessor: "doc",
       disableFilters: true,
-      Cell: () => <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+      Cell: () => <button className="p-blue bg btn btn-primary h8">View</button>,
     },
     {
       Header: "Actions",

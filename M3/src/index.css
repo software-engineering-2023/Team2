@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1b2e99;
+  background-color: #032d62;
   padding: 10px;
   color: white;
   font-family: 'Roboto', sans-serif !important;
@@ -42,6 +42,16 @@
 .navbar-second-middle{
   display: flex;
   justify-content: center;
+}
+
+.email-textfield{
+
+  border:none;
+  outline:0;
+  border-radius:5px;
+  border:1px solid #cbced4;
+  gap:20px;
+  padding:0px 10px;
 }
 
 
@@ -103,7 +113,7 @@
 }
 
 .head{
-  display: block;
+    display: block;
     color:white;
     font-size: 25px;
     margin-block-start: 1em;
@@ -112,6 +122,7 @@
     margin-inline-end: 0px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 .head.head-hovered{
@@ -170,6 +181,8 @@
 }
 
 
+
+
 .header{
     margin-top:25px;
     font-family: Helvetica Neue,sans-serif !important;
@@ -219,15 +232,15 @@
 }
 
 .table-container{
-  background-color: #1858a8;
+  background-color: #ffffff;
 }
 
-.white-text{
-  color: #ffffff;
+.control{
+  color: #000000;
 }
 
-.white-header{
-  color: #ffffff;
+.control-head{
+  color: #000000;
 }
 
 .table-wrapper{
@@ -235,9 +248,76 @@
   height: 100%;
 }
 
-.add-payment{
-  margin-left: 10px;
+.message{
+  text-align: center;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 2vh;
 }
+.issues{
+  background-image: url("support.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.enlarged-textbox {
+  width: 40vw;  
+  margin-left: 30vw;
+  margin-top: 20vh;
+  height: 200px;
+  resize: vertical;
+  padding: 10px;
+  font-size: 16px;
+  text-align: left;
+  border-color: gray;
+}
+
+.textbox-header {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  font-size: 18px;
+}
+
+.submit{
+  margin-left: 47vw;
+  margin-top: 2vh;
+  background-color: #007bff; /* Set the button color */
+  color: #fff; /* Set the text color */
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+.submit:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}
+
+.checkmark{
+  width: 30px;
+  height: 30px;
+}
+
+
+.title-rep{
+  font-size: 40px;
+  margin-left: 45vw;
+  color: #fff;
+  margin-top: 1vh;
+}
+
+.right-rep{
+  color: #fff;
+  margin-left: 38vw;
+  font-size: 25px;
+
+}
+
 
 
 

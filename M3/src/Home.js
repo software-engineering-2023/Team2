@@ -15,8 +15,8 @@ const Home = () => {
       <p className="desc">Spend, save and manage your money, all in one place.</p>
       <div className="contwrap">
       <ul className="content">
-      <Box text="" head="My Loans" dest="/applyforpersonalloan"/>
-      <Box text="" head="My Bank Accounts" dest="/open"/>
+      <Box text="" head="My Loans" dest="/myloans"/>
+      <Box text="" head="My Bank Accounts" dest="/myaccounts"/>
       <Box text="" head="My Credit Cards" dest ="/mycreditcards"></Box>
       <Box text="" head="My Bills" dest ="/mybills"></Box>
     </ul>

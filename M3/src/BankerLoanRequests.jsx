@@ -17,16 +17,16 @@ const BankerLoanRequests = () => {
         amount: 1000,
         interest: 5,
         purpose: "Home Loan",
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("1")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("1")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -41,16 +41,16 @@ const BankerLoanRequests = () => {
         amount: 2000,
         interest: 7,
         purpose: "Car Loan",
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("2")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("2")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -64,16 +64,16 @@ const BankerLoanRequests = () => {
         amount: 1500,
         interest: 6,
         purpose: "Education Loan",
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("3")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("3")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -87,16 +87,16 @@ const BankerLoanRequests = () => {
         amount: 2500,
         interest: 8,
         purpose: "Business Loan",
-        doc: <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+        doc: <button className="p-blue bg btn btn-primary h8">View</button>,
         actions: (
           <>
-            <MDBBtn onClick={() => handleAccept("4")} rounded color="secondary">
+            <button onClick={() => handleAccept("4")} className="p-blue bg btn btn-primary h8">
               Accept
-            </MDBBtn>
+            </button>
             <span style={{ marginLeft: "8px", marginRight: "8px" }}></span>
-            <MDBBtn className="reject-btn" onClick={() => handleReject("4")} rounded color="secondary">
+            <button onClick={() => handleReject("4")} className="p-blue bg btn btn-primary h8">
               Reject
-            </MDBBtn>
+            </button>
           </>
         ),
       },
@@ -163,7 +163,7 @@ const BankerLoanRequests = () => {
       Header: "Uploaded Documents",
       accessor: "doc",
       disableFilters: true,
-      Cell: () => <MDBBtn rounded className='mx-2' color="secondary">View</MDBBtn>,
+      Cell: () => <button className="p-blue bg btn btn-primary h8">View</button>,
     },
     {
       Header: "Actions",

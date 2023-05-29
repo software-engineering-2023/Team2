@@ -28,7 +28,13 @@ import CarLoan from './CarLoan';
 import BankerIssues from './BankerIssues'
 import BankerSettings from './BankerAccount';
 import Close from './Close';
-
+import LoginAdmin from './LoginAdmin'
+import HomeAdmin from './HomeAdmin'
+import Announce from './Announce'
+import Issues from './Issues'
+import BankerClose from './BankerCloseRequests'
+import BankerClientInfo from './BankerClientInfo'
+import Search from './SearchForClient'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -49,7 +55,7 @@ ReactDOM.render(
         <Route path="/mybills" element={<BillingPage />} />
         <Route path="/myaccounts" element={<NewDesign/>} />
         <Route path="/myloans" element={<NewLoan/>} />
-        <Route path="/banker" element={<BankerLogin></BankerLogin>} />
+        <Route path="/banker" element={<LoginAdmin />}/>
         <Route path="/bankerHome" element={<BankerHome></BankerHome>} />
         <Route path="/bankerrequests" element={<BankerRequests></BankerRequests>} />
         <Route path="/bankerLoanrequests" element={<BankerLoanRequests></BankerLoanRequests>} />
@@ -60,6 +66,15 @@ ReactDOM.render(
         <Route path="/applyforcar" element={<CarLoan/>} />
         <Route path="/bankerissues" element={<BankerIssues/>} />
         <Route path="/bankeraccount" element={<BankerSettings/>} />
+        <Route path="/admin" element={<LoginAdmin />}/>
+        <Route path="/adminhome" element={<HomeAdmin />}/>
+        <Route path="/announce" element={<Announce />}/>
+        <Route path="/issues" element={<Issues />}/>
+        <Route path="/bankerclose" element={<BankerClose/>}/>
+        <Route path="/bankerclientinfo" element={<BankerClientInfo/>}/>
+        <Route path="/search" element={<Search/>}/>
+
+
 
 
 

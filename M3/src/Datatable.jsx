@@ -63,7 +63,7 @@ const DataTable = ({ columns, data }) => {
                     return (
                       <td {...cell.getCellProps()} key={cell.column.id} className="control">
                         {cell.column.id === 'actions' ? (
-                          <div className="button-container">
+                          <div className="button-con">
                             {cell.render('Cell')}
                           </div>
                         ) : (

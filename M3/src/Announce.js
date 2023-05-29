@@ -5,7 +5,6 @@ import { Paper, TextField, Button, Typography, Box } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import AdminNavbar from './AdminNavbar';
 import './Announce.css';
-import './index.css';
 import { FormControl, FormControlLabel, Radio, RadioGroup , FormLabel , FormHelperText } from '@mui/material';
 
        
@@ -37,6 +36,7 @@ const Announce = () => {
   return (
     <div className="Announce">
       <AdminNavbar />
+      <div className="sep">
       <Paper elevation={3} style={{ padding: '20px', width: '600px', maxWidth: '90%' }}>
         {!submitted ? (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -86,6 +86,7 @@ const Announce = () => {
           </Box>
         )}
       </Paper>
+      </div>
     </div>
   );
 };

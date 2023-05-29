@@ -1,158 +1,132 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
-function Register() {
-    const navigate = useNavigate();
-    const [formValues, setFormValues] = useState({
-        form3Example1cg: '',
-        form3Example3cg: '',
-        form3Example4cg: '',
-        form3Example4cdg: '',
-        form3Example5cg: '',
-        form2Example3cg: false,
+const RegisterForm = () => {
+  const [nationalId, setNationalId] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [accountNumber, setAccountNumber] = useState('');
+  const [termsChecked, setTermsChecked] = useState(false);
+  const [errors, setErrors] = useState({
+    nationalId: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    accountNumber: '',
+    terms: ''
+  });
+
+
+  const nav = useNavigate();
+
+  const handleRegister = () => {
+    const nationalIdPattern = /^\d{14}$/;
+
+    // Reset previous errors
+    setErrors({
+      nationalId: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      accountNumber: '',
+      terms: ''
+    });
+
+    if (
+      nationalId &&
+      email &&
+      password &&
+      confirmPassword &&
+      accountNumber &&
+      termsChecked
+    ) {
+      if (password !== confirmPassword) {
+        setErrors({ ...errors, confirmPassword: 'Passwords do not match.' });
+        return;
+      }
+
+      if (!nationalIdPattern.test(nationalId)) {
+        setErrors({
+          ...errors,
+          nationalId: 'Please enter a valid National ID (14 digits only).'
+        });
+        return;
+      }
+
+      // All fields are filled, terms are checked, and national ID is valid
+      alert('Registration successful!'); // Replace with your desired logic
+
+      // Redirect the user to the login page or any other page
+      nav('/'); // Replace '/login' with your desired route
+    } else {
+      // Set error states for empty fields
+      setErrors({
+        nationalId: !nationalId ? 'National ID is required.' : '',
+        email: !email ? 'Email is required.' : '',
+        password: !password ? 'Password is required.' : '',
+        confirmPassword: !confirmPassword ? 'Confirm Password is required.' : '',
+        accountNumber: !accountNumber ? 'Account Number is required.' : '',
+        terms: !termsChecked ? 'Please accept the terms.' : ''
       });
-    
-      const handleInputChange = (event) => {
-        const { id, value } = event.target;
-        setFormValues({ ...formValues, [id]: value });
-      };
-    
-      const handleRegister = () => {
-        const { form3Example1cg, form3Example3cg, form3Example4cg, form3Example4cdg, form2Example3cg } = formValues;
-    
-        if (form3Example1cg && form3Example3cg && form3Example4cg && form3Example4cdg && form2Example3cg) {
-          // All fields are filled and terms are checked
-          alert('Registration successful!'); // Replace with your desired logic
-    
-          // Redirect the user to the login page or any other page
-          navigate('/'); // Replace '/login' with your desired route
-        } else {
-          alert('Please fill in all required fields and accept the terms.');
-        }
-      };
-  
+    }
+  };
 
   return (
-    <section className="vh-100 bg-image" style={{ backgroundColor: '#1b2e99' }}>
-      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div className="container h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-12 col-md-9 col-lg-7 col-xl-6" style={{ width: '45vw' }}>
-              <div className="card" style={{ borderRadius: '15px' }}>
-                <div className="card-body p-5">
-                  <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+    <div>
+      <label>National ID:</label>
+      <input
+        type="text"
+        value={nationalId}
+        onChange={(e) => setNationalId(e.target.value)}
+      />
+      {errors.nationalId && <p>{errors.nationalId}</p>}
 
-                  <div className="row">
-                    <div className="col-12 mx-auto">
-                      <form>
-                        <div className="form-outline mb-4">
-                          <input
-                            type="text"
-                            id="form3Example1cg"
-                            className="form-control form-control-lg"
-                            onChange={handleInputChange}
-                          />
-                          <label className="form-label" htmlFor="form3Example1cg">
-                            National ID
-                          </label>
-                        </div>
+      <label>Email:</label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      {errors.email && <p>{errors.email}</p>}
 
-                        <div className="form-outline mb-4">
-                          <input
-                            type="email"
-                            id="form3Example3cg"
-                            className="form-control form-control-lg"
-                            onChange={handleInputChange}
-                          />
-                          <label className="form-label" htmlFor="form3Example3cg">
-                            Email
-                          </label>
-                        </div>
+      <label>Password:</label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      {errors.password && <p>{errors.password}</p>}
 
-                        <div className="form-outline mb-4">
-                          <input
-                            type="password"
-                            id="form3Example4cg"
-                            className="form-control form-control-lg"
-                            onChange={handleInputChange}
-                          />
-                          <label className="form-label" htmlFor="form3Example4cg">
-                            Password
-                          </label>
-                        </div>
+      <label>Confirm Password:</label>
+      <input
+        type="password"
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+      />
+      {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
 
-                        <div className="form-outline mb-4">
-                          <input
-                            type="password"
-                            id="form3Example4cdg"
-                            className="form-control form-control-lg"
-                            onChange={handleInputChange}
-                          />
-                          <label className="form-label" htmlFor="form3Example4cdg">
-                            Confirm Password
-                          </label>
-                        </div>
+      <label>Account Number:</label>
+      <input
+        type="text"
+        value={accountNumber}
+        onChange={(e) => setAccountNumber(e.target.value)}
+      />
+      {errors.accountNumber && <p>{errors.accountNumber}</p>}
 
-                        {/* New input bar */}
-                        <div className="form-outline mb-4">
-                          <input
-                            type="text"
-                            id="form3Example5cg"
-                            className="form-control form-control-lg"
-                            onChange={handleInputChange}
-                          />
-                          <label className="form-label" htmlFor="form3Example5cg"
-                          >
-                            Account Number (if you have any)
-                          </label>
-                        </div>
+      <label>
+        <input
+          type="checkbox"
+          checked={termsChecked}
+          onChange={() => setTermsChecked(!termsChecked)}
+        />
+        Accept Terms
+      </label>
+      {errors.terms && <p>{errors.terms}</p>}
 
-                        <div className="form-check d-flex justify-content-center mb-5">
-                          <input
-                            className="form-check-input me-2"
-                            type="checkbox"
-                            id="form2Example3cg"
-                            onChange={(event) => {
-                              const { checked } = event.target;
-                              setFormValues({ ...formValues, form2Example3cg: checked });
-                            }}
-                          />
-                          <label className="form-check-label" htmlFor="form2Example3g">
-                            I agree to all the statements in{' '}
-                            <a href="#!" className="text-body">
-                              <u>Terms of Service</u>
-                            </a>
-                          </label>
-                        </div>
-
-                        <div className="d-flex justify-content-center">
-                          <button
-                            type="button"
-                            className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                            onClick={handleRegister}
-                          >
-                            Register
-                          </button>
-                        </div>
-
-                        <p className="text-center text-muted mt-5 mb-0">
-                          Already have an account?{' '}
-                          <a href="/" className="fw-bold text-body">
-                            <u>Login here</u>
-                          </a>
-                        </p>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <button onClick={handleRegister}>Register</button>
+    </div>
   );
-}
+};
 
-export default Register;
+export default RegisterForm;

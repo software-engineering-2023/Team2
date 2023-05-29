@@ -16,8 +16,8 @@ const HomeAdmin = () => {
       <div className="container">
       <ul className="content">
         <div class= "Adminboxes">
-      <Box  head="View technical issues" dest="/issues" />
-      <Box  head="A3mel Announcement" dest="/announce"></Box>
+      <Box  head="View Technical Issues" dest="/issues" />
+      <Box  head="Publish Announcement" dest="/announce"></Box>
       </div>
     </ul>
     </div>

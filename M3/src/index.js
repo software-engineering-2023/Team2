@@ -80,6 +80,8 @@ ReactDOM.render(
         <Route path="/bankercar" element={<BankerCar/>}/>
         <Route path="/clientcredit" element={<ProtoCredit/>}/>
         <Route path="/clientbank" element={<ProtoBank/>}/>
+        <Route path="/viewreports" element={<ViewTheft/>}/>
+        
 
 
 

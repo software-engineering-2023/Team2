@@ -257,12 +257,12 @@ const FormComponent = () => {
                   <input
                       type="text"
                       required
-                      placeholder="e.g. Savings Account"
+                      placeholder="e.g. Engineer"
                       value={purpose}
                       onChange={handlePurposeChange}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      data-example="e.g. Savings Account"
+                      data-example="e.g. Engineer"
                       
                     />
                     {purposeError && (

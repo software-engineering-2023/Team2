@@ -68,7 +68,7 @@ function LoginForm() {
                         </label>
                       </div>
                       <div className="pt-1 mb-4">
-                        <button className="btn btn-dark btn-lg btn-block" type="button" onClick={checkCredentials}>
+                        <button className="p-blue bg btn btn-primary h8" type="button" onClick={checkCredentials}>
                           Login
                         </button>
                         <p> </p>
@@ -76,9 +76,7 @@ function LoginForm() {
                       <p className="error-message">Invalid e-mail or password.</p>
                         )}  
                       </div>
-                      <a className="small text-muted" href="#!">
-                        Forgot password?
-                      </a>
+                      
                       <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>
                         Don't have an account? <a href="/register" style={{ color: '#393f81' }}>Register here</a>
                       </p>
